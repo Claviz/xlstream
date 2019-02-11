@@ -38,6 +38,7 @@ export function getXlsxStream(options: IXlsxStreamOptions) {
                             const formatId = ch.attribs.s ? Number(ch.attribs.s) : 0;
                             if (formatId) {
                                 value = ssf.format(formats[formatId], value);
+                                value = isNaN(value) ? value : Number(value);
                             }
                             formattedArr[index] = value;
                             formattedObj[column] = value;
