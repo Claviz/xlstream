@@ -54,6 +54,10 @@ Result:
 | sheet      | `string` or `number` | If `string` is passed, finds sheet by it's name. If `number`, finds sheet by it's index. |
 | withHeader | `boolean`            | If `true`, column names will be taken from the first sheet row.                          |
 
+## Building
+
+You can build `js` source by using `npm run build` command.
+
 ## Testing
 
 Tests can be run by using `npm test` command.
