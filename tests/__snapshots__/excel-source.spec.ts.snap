@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parses xlsx without header 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "hello",
+        "world",
+        123,
+      ],
+      "obj": Object {
+        "A": "hello",
+        "B": "world",
+        "C": 123,
+      },
+    },
+    "raw": Object {
+      "arr": Array [
+        "hello",
+        "world",
+        123,
+      ],
+      "obj": Object {
+        "A": "hello",
+        "B": "world",
+        "C": 123,
+      },
+    },
+  },
+]
+`;

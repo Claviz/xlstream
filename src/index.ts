@@ -11,9 +11,8 @@ function lettersToNumber(letters: string) {
     return letters.split('').reduce((r, a) => r * 26 + parseInt(a, 36) - 9, 0);
 }
 
-export function getStream(options: IXlsxStreamOptions) {
+export function getXlsxStream(options: IXlsxStreamOptions) {
     return new Promise<Transform>((resolve, reject) => {
-
 
         function getTransform(formats: (string | number)[], strings: string[]) {
             return new Transform({
