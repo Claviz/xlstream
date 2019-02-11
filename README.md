@@ -20,7 +20,7 @@ Where `123` is a `123.123` number formatted to be rounded to integer.
 
 Script:
 ```javascript
-const getXlsxStream = 'xlstream';
+const { getXlsxStream } = require('xlstream');
 
 (async () => {
     const stream = await getXlsxStream({

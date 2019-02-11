@@ -12,3 +12,16 @@ it('reads XLSX file correctly', async (done) => {
         done();
     })
 });
+
+it('reads empty XLSX file correctly', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/empty.xlsx',
+        sheet: 0,
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});

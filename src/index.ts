@@ -82,24 +82,28 @@ export function getXlsxStream(options: IXlsxStreamOptions) {
                 }
             }
             zip.stream('xl/sharedStrings.xml', (err: any, stream: ReadStream) => {
-                stream.pipe(saxStream({
-                    strict: true,
-                    tag: 'si'
-                })).on('data', (x: any) => {
-                    if (x.children.t) {
-                        strings.push(x.children.t.value);
-                    } else {
-                        let str = '';
-                        for (let i = 0; i < x.children.r.length; i++) {
-                            const ch = x.children.r[i].children;
-                            str += ch.t.value;
+                if (stream) {
+                    stream.pipe(saxStream({
+                        strict: true,
+                        tag: 'si'
+                    })).on('data', (x: any) => {
+                        if (x.children.t) {
+                            strings.push(x.children.t.value);
+                        } else {
+                            let str = '';
+                            for (let i = 0; i < x.children.r.length; i++) {
+                                const ch = x.children.r[i].children;
+                                str += ch.t.value;
+                            }
+                            strings.push(str);
                         }
-                        strings.push(str);
-                    }
-                });
-                stream.on('end', () => {
+                    });
+                    stream.on('end', () => {
+                        processSheet(sheetId, formats, strings);
+                    });
+                } else {
                     processSheet(sheetId, formats, strings);
-                });
+                }
             });
         }
 

@@ -26,3 +26,5 @@ Array [
   },
 ]
 `;
+
+exports[`reads empty XLSX file correctly 1`] = `Array []`;
