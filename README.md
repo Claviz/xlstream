@@ -13,9 +13,11 @@ npm install xlstream
 
 ## Example
 `source.xlsx` contents:
+
 | A     | B   |
 | ----- | --- |
 | hello | 123 |
+
 Where `123` is a `123.123` number formatted to be rounded to integer.
 
 Script:
