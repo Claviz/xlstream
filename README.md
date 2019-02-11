@@ -48,10 +48,11 @@ Result:
 
 ## Options
 
-| option   | type                 | description                                                                              |
-| -------- | -------------------- | ---------------------------------------------------------------------------------------- |
-| filePath | `string`             | Path to the XLSX file                                                                    |
-| sheet    | `string` or `number` | If `string` is passed, finds sheet by it's name. If `number`, finds sheet by it's index. |
+| option     | type                 | description                                                                              |
+| ---------- | -------------------- | ---------------------------------------------------------------------------------------- |
+| filePath   | `string`             | Path to the XLSX file                                                                    |
+| sheet      | `string` or `number` | If `string` is passed, finds sheet by it's name. If `number`, finds sheet by it's index. |
+| withHeader | `boolean`            | If `true`, column names will be taken from the first sheet row.                          |
 
 ## Testing
 

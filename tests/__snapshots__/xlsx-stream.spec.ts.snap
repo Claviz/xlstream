@@ -27,4 +27,31 @@ Array [
 ]
 `;
 
+exports[`reads XLSX file with header 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "hello",
+        123,
+      ],
+      "obj": Object {
+        "column1": "hello",
+        "column2": 123,
+      },
+    },
+    "raw": Object {
+      "arr": Array [
+        "hello",
+        123.123,
+      ],
+      "obj": Object {
+        "column1": "hello",
+        "column2": 123.123,
+      },
+    },
+  },
+]
+`;
+
 exports[`reads empty XLSX file correctly 1`] = `Array []`;

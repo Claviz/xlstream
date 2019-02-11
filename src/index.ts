@@ -22,6 +22,7 @@ export function getXlsxStream(options: IXlsxStreamOptions) {
                     let formattedArr = [];
                     let obj: any = {};
                     let formattedObj: any = {};
+                    let parsingHeader = false;
                     const children = chunk.children.c.length ? chunk.children.c : [chunk.children.c];
                     for (let i = 0; i < children.length; i++) {
                         const ch = children[i];
@@ -31,8 +32,16 @@ export function getXlsxStream(options: IXlsxStreamOptions) {
                                 value = strings[value];
                             }
                             value = isNaN(value) ? value : Number(value);
-                            const column = ch.attribs.r.replace(/[0-9]/g, '');
+                            let column = ch.attribs.r.replace(/[0-9]/g, '');
                             const index = lettersToNumber(column) - 1;
+                            if (options.withHeader) {
+                                if (!parsingHeader && header.length) {
+                                    column = header[index];
+                                } else {
+                                    header[index] = value;
+                                    parsingHeader = true;
+                                }
+                            }
                             arr[index] = value;
                             obj[column] = value;
                             const formatId = ch.attribs.s ? Number(ch.attribs.s) : 0;
@@ -44,7 +53,7 @@ export function getXlsxStream(options: IXlsxStreamOptions) {
                             formattedObj[column] = value;
                         }
                     }
-                    done(undefined, {
+                    done(undefined, parsingHeader ? null : {
                         raw: {
                             obj,
                             arr
@@ -159,6 +168,7 @@ export function getXlsxStream(options: IXlsxStreamOptions) {
             });
         }
 
+        let header: string[] = [];
         const zip = new StreamZip({
             file: options.filePath,
             storeEntries: true

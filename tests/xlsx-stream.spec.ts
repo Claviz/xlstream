@@ -25,3 +25,18 @@ it('reads empty XLSX file correctly', async (done) => {
         done();
     })
 });
+
+it('reads XLSX file with header', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/with-header.xlsx',
+        sheet: 0,
+        withHeader: true,
+    });
+    // stream.resume();
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});
