@@ -1,5 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ignores empty rows 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "hello",
+        "world",
+      ],
+      "obj": Object {
+        "A": "hello",
+        "B": "world",
+      },
+    },
+    "raw": Object {
+      "arr": Array [
+        "hello",
+        "world",
+      ],
+      "obj": Object {
+        "A": "hello",
+        "B": "world",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "hello",
+        "world",
+      ],
+      "obj": Object {
+        "A": "hello",
+        "B": "world",
+      },
+    },
+    "raw": Object {
+      "arr": Array [
+        "hello",
+        "world",
+      ],
+      "obj": Object {
+        "A": "hello",
+        "B": "world",
+      },
+    },
+  },
+]
+`;
+
 exports[`reads XLSX file correctly 1`] = `
 Array [
   Object {

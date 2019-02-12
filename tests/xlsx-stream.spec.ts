@@ -33,7 +33,20 @@ it('reads XLSX file with header', async (done) => {
         sheet: 0,
         withHeader: true,
     });
-    // stream.resume();
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});
+
+it('ignores empty rows', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/empty-rows.xlsx',
+        sheet: 0,
+        ignoreEmpty: true,
+    });
     stream.on('data', x => data.push(x));
     stream.on('end', () => {
         expect(data).toMatchSnapshot();

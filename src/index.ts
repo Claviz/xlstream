@@ -53,7 +53,7 @@ export function getXlsxStream(options: IXlsxStreamOptions) {
                             formattedObj[column] = value;
                         }
                     }
-                    done(undefined, parsingHeader ? null : {
+                    done(undefined, parsingHeader || (options.ignoreEmpty && !arr.length) ? null : {
                         raw: {
                             obj,
                             arr
