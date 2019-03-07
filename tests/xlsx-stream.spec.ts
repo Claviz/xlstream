@@ -1,4 +1,4 @@
-import { getXlsxStream } from '../src';
+import { getXlsxStream, getWorksheets } from '../src';
 
 it('reads XLSX file correctly', async (done) => {
     const data: any = [];
@@ -53,3 +53,17 @@ it('ignores empty rows', async (done) => {
         done();
     })
 });
+
+it('gets worksheet names list', async (done) => {
+    const sheets = await getWorksheets({
+        filePath: './tests/assets/worksheets.xlsx',
+    });
+    expect(sheets).toEqual([
+        'Sheet1',
+        'Sheet2',
+        'Sheet3',
+        'Sheet4',
+    ]);
+    done();
+});
+

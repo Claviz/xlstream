@@ -46,7 +46,9 @@ Result:
 }
 ```
 
-## Options
+## getXlsxStream
+
+### Options
 
 | option      | type                 | description                                                                              |
 | ----------- | -------------------- | ---------------------------------------------------------------------------------------- |
@@ -54,6 +56,15 @@ Result:
 | sheet       | `string` or `number` | If `string` is passed, finds sheet by it's name. If `number`, finds sheet by it's index. |
 | withHeader  | `boolean`            | If `true`, column names will be taken from the first sheet row.                          |
 | ignoreEmpty | `boolean`            | If `true`, empty rows won't be emitted.                                                  |
+
+## getWorksheets
+Returns array of sheet names.
+
+### Options
+
+| option   | type     | description           |
+| -------- | -------- | --------------------- |
+| filePath | `string` | Path to the XLSX file |
 
 ## Building
 

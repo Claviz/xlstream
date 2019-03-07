@@ -4,3 +4,7 @@ export interface IXlsxStreamOptions {
     withHeader?: boolean;
     ignoreEmpty?: boolean;
 }
+
+export interface IWorksheetOptions {
+    filePath: string;
+}

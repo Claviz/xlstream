@@ -2,7 +2,7 @@ import ssf from 'ssf';
 import { Transform } from 'stream';
 import { ReadStream } from 'tty';
 
-import { IXlsxStreamOptions } from './types';
+import { IXlsxStreamOptions, IWorksheetOptions } from './types';
 
 const StreamZip = require('node-stream-zip');
 const saxStream = require('sax-stream');
@@ -172,6 +172,34 @@ export function getXlsxStream(options: IXlsxStreamOptions) {
         const zip = new StreamZip({
             file: options.filePath,
             storeEntries: true
+        });
+        zip.on('ready', () => {
+            processWorkbook();
+        });
+    });
+}
+
+export function getWorksheets(options: IWorksheetOptions) {
+    return new Promise<string[]>((resolve, reject) => {
+        function processWorkbook() {
+            zip.stream('xl/workbook.xml', (err: any, stream: ReadStream) => {
+                stream.pipe(saxStream({
+                    strict: true,
+                    tag: 'sheet'
+                })).on('data', (x: any) => {
+                    sheets.push(x.attribs.name);
+                });
+                stream.on('end', () => {
+                    zip.close();
+                    resolve(sheets);
+                });
+            });
+        }
+
+        let sheets: string[] = [];
+        const zip = new StreamZip({
+            file: options.filePath,
+            storeEntries: true,
         });
         zip.on('ready', () => {
             processWorkbook();
