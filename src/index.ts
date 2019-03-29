@@ -23,7 +23,7 @@ export function getXlsxStream(options: IXlsxStreamOptions) {
                     let obj: any = {};
                     let formattedObj: any = {};
                     let parsingHeader = false;
-                    const children = chunk.children.c.length ? chunk.children.c : [chunk.children.c];
+                    const children = chunk.children ? chunk.children.c.length ? chunk.children.c : [chunk.children.c] : [];
                     for (let i = 0; i < children.length; i++) {
                         const ch = children[i];
                         if (ch.children) {

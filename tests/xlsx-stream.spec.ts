@@ -67,3 +67,16 @@ it('gets worksheet names list', async (done) => {
     done();
 });
 
+it(`doesn't fail when empty row has custom height`, async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/empty-row-custom-height.xlsx',
+        sheet: 0,
+        ignoreEmpty: true,
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});
