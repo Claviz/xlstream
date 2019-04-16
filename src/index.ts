@@ -61,7 +61,8 @@ export function getXlsxStream(options: IXlsxStreamOptions) {
                         formatted: {
                             obj: formattedObj,
                             arr: formattedArr,
-                        }
+                        },
+                        header,
                     });
                 }
             })

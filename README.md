@@ -4,7 +4,7 @@ Memory-efficiently turns XLSX file into a [transform stream](https://nodejs.org/
 
 * Stream is **pausable**.
 * Emits all **default events** (`data`, `end`, etc.)
-* Returns **raw** and **formatted** row data in just one `data` event.
+* Returns **header**, **raw** and **formatted** row data in just one `data` event.
 
 ## Installation
 ```
@@ -42,7 +42,8 @@ Result:
     "formatted": { 
         "obj": { "A": "hello", "B": 123 }, 
         "arr": [ "hello", 123 ] 
-    } 
+    },
+    "header": []
 }
 ```
 

@@ -11,6 +11,7 @@ Array [
         "A": "test",
       },
     },
+    "header": Array [],
     "raw": Object {
       "arr": Array [
         "test",
@@ -36,6 +37,7 @@ Array [
         "B": "world",
       },
     },
+    "header": Array [],
     "raw": Object {
       "arr": Array [
         "hello",
@@ -58,6 +60,7 @@ Array [
         "B": "world",
       },
     },
+    "header": Array [],
     "raw": Object {
       "arr": Array [
         "hello",
@@ -85,6 +88,7 @@ Array [
         "B": 123,
       },
     },
+    "header": Array [],
     "raw": Object {
       "arr": Array [
         "hello",
@@ -105,21 +109,28 @@ Array [
     "formatted": Object {
       "arr": Array [
         "hello",
+        undefined,
         123,
       ],
       "obj": Object {
         "column1": "hello",
-        "column2": 123,
+        "column3": 123,
       },
     },
+    "header": Array [
+      "column1",
+      "column2",
+      "column3",
+    ],
     "raw": Object {
       "arr": Array [
         "hello",
+        undefined,
         123.123,
       ],
       "obj": Object {
         "column1": "hello",
-        "column2": 123.123,
+        "column3": 123.123,
       },
     },
   },
