@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/Claviz/xlstream.svg?branch=master)](https://travis-ci.org/Claviz/xlstream)
-[![Coverage Status](https://coveralls.io/repos/github/Claviz/xlstream/badge.svg?branch=master)](https://coveralls.io/github/Claviz/xlstream?branch=master)
+[![codecov](https://codecov.io/gh/Claviz/xlstream/branch/master/graph/badge.svg)](https://codecov.io/gh/Claviz/xlstream)
 ![npm](https://img.shields.io/npm/v/xlstream.svg)
 
 # xlstream
