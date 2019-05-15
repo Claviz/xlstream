@@ -1,6 +1,7 @@
 # xlstream
 
 [![Build Status](https://travis-ci.org/Claviz/xlstream.svg?branch=master)](https://travis-ci.org/Claviz/xlstream)
+[![Coverage Status](https://coveralls.io/repos/github/Claviz/xlstream/badge.svg?branch=master)](https://coveralls.io/github/Claviz/xlstream?branch=master)
 
 Memory-efficiently turns XLSX file into a [transform stream](https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams) with all it's benefits.
 
