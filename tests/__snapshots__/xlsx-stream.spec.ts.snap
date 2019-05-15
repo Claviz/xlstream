@@ -24,6 +24,54 @@ Array [
 ]
 `;
 
+exports[`gets worksheet by index, even if they are reordered 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "Sheet5",
+      ],
+      "obj": Object {
+        "A": "Sheet5",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        "Sheet5",
+      ],
+      "obj": Object {
+        "A": "Sheet5",
+      },
+    },
+  },
+]
+`;
+
+exports[`gets worksheet by name, even if they are reordered 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "Sheet1",
+      ],
+      "obj": Object {
+        "A": "Sheet1",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        "Sheet1",
+      ],
+      "obj": Object {
+        "A": "Sheet1",
+      },
+    },
+  },
+]
+`;
+
 exports[`ignores empty rows 1`] = `
 Array [
   Object {

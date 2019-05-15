@@ -67,6 +67,34 @@ it('gets worksheet names list', async (done) => {
     done();
 });
 
+it('gets worksheet by name, even if they are reordered', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/worksheets-reordered.xlsx',
+        sheet: 'Sheet1',
+        ignoreEmpty: true,
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});
+
+it('gets worksheet by index, even if they are reordered', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/worksheets-reordered.xlsx',
+        sheet: 1,
+        ignoreEmpty: true,
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});
+
 it(`doesn't fail when empty row has custom height`, async (done) => {
     const data: any = [];
     const stream = await getXlsxStream({

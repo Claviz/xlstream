@@ -145,26 +145,20 @@ export function getXlsxStream(options: IXlsxStreamOptions) {
 
         function processWorkbook() {
             zip.stream('xl/workbook.xml', (err: any, stream: ReadStream) => {
-                let sheetId: string;
+                const sheets: string[] = [];
                 stream.pipe(saxStream({
                     strict: true,
                     tag: 'sheet'
                 })).on('data', (x: any) => {
                     const attribs = x.attribs;
-                    if (!sheetId) {
-                        if (typeof options.sheet === 'number') {
-                            if (attribs.sheetId - 1 === options.sheet) {
-                                sheetId = attribs.sheetId;
-                            }
-                        } else if (typeof options.sheet === 'string') {
-                            if (attribs.name === options.sheet) {
-                                sheetId = attribs.sheetId;
-                            }
-                        }
-                    }
+                    sheets.push(attribs.name);
                 });
                 stream.on('end', () => {
-                    processStyles(sheetId);
+                    if (typeof options.sheet === 'number') {
+                        processStyles(`${options.sheet + 1}`);
+                    } else if (typeof options.sheet === 'string') {
+                        processStyles(`${sheets.indexOf(options.sheet) + 1}`);
+                    }
                 });
             });
         }
