@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Claviz/xlstream.svg?branch=master)](https://travis-ci.org/Claviz/xlstream)
 [![Coverage Status](https://coveralls.io/repos/github/Claviz/xlstream/badge.svg?branch=master)](https://coveralls.io/github/Claviz/xlstream?branch=master)
-[![npm version](https://badge.fury.io/js/xlstream.svg)](https://badge.fury.io/js/xlstream)
+![npm](https://img.shields.io/npm/v/xlstream.svg)
 
 # xlstream
 
