@@ -171,6 +171,9 @@ export function getXlsxStream(options: IXlsxStreamOptions) {
         zip.on('ready', () => {
             processWorkbook();
         });
+        zip.on('error', (err: any) => {
+            reject(new Error(err));
+        });
     });
 }
 
