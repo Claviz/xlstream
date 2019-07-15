@@ -108,3 +108,16 @@ it(`doesn't fail when empty row has custom height`, async (done) => {
         done();
     })
 });
+
+it(`throws expected bad archive error`, async (done) => {
+    const data: any = [];
+    try {
+        const stream = await getXlsxStream({
+            filePath: './tests/assets/bad-archive.xlsx',
+            sheet: 0,
+        });
+    } catch (err) {
+        expect(err).toMatchSnapshot();
+        done();
+    }
+});

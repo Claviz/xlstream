@@ -186,3 +186,5 @@ Array [
 `;
 
 exports[`reads empty XLSX file correctly 1`] = `Array []`;
+
+exports[`throws expected bad archive error 1`] = `[Error: Archive read error]`;
