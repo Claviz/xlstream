@@ -3,6 +3,7 @@ export interface IXlsxStreamOptions {
     sheet: string | number;
     withHeader?: boolean;
     ignoreEmpty?: boolean;
+    skipRows?: Array<number>;
 }
 
 export interface IWorksheetOptions {

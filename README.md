@@ -61,6 +61,7 @@ Result:
 | sheet       | `string` or `number` | If `string` is passed, finds sheet by it's name. If `number`, finds sheet by it's index. |
 | withHeader  | `boolean`            | If `true`, column names will be taken from the first sheet row.                          |
 | ignoreEmpty | `boolean`            | If `true`, empty rows won't be emitted.                                                  |
+| skipRows    | `Array`              | Pass array of row numbers to skip.                                                  |
 
 ## getWorksheets
 Returns array of sheet names.
