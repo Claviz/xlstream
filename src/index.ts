@@ -2,7 +2,7 @@ import ssf from 'ssf';
 import { Transform } from 'stream';
 import { ReadStream } from 'tty';
 
-import { IXlsxStreamOptions, IWorksheetOptions, IXlsxObj } from './types';
+import { IXlsxStreamOptions, IWorksheetOptions } from './types';
 
 const StreamZip = require('node-stream-zip');
 const saxStream = require('sax-stream');
@@ -11,10 +11,10 @@ function lettersToNumber(letters: string) {
     return letters.split('').reduce((r, a) => r * 26 + parseInt(a, 36) - 9, 0);
 }
 
-export function getXlsxSheetStream(obj: IXlsxObj, sheet: (string | number)) {
-    return new Promise<Transform>((resolve, reject) => {
+export function getXlsxStream(options: IXlsxStreamOptions) {
+    return new Promise<Transform | Transform[]>((resolve, reject) => {
 
-        function getTransform(formats: (string | number)[], strings: string[]) {
+        function getTransform(formats: (string | number)[], strings: string[], header: string[]) {
             return new Transform({
                 objectMode: true,
                 transform: (chunk, encoding, done) => {
@@ -68,56 +68,65 @@ export function getXlsxSheetStream(obj: IXlsxObj, sheet: (string | number)) {
             })
         }
 
-        function processSheet(sheetId: string, formats: (string | number)[], strings: string[]) {
-            if (obj.zipClosed) {
-                reject(new Error('Zip stream was closed'));
-            }
-            zip.stream(`xl/worksheets/sheet${sheetId}.xml`, (err: any, stream: ReadStream) => {
-                const readStream = stream
-                    .pipe(saxStream({
-                        strict: true,
-                        tag: 'row'
-                    }))
-                    .pipe(getTransform(formats, strings));
-                stream.on('end', () => {
-                    if (! options.dontCloseZip) {
-                        zip.close();
-                        obj.zipClosed = true;
-                    }
+        async function processSheets(sheetIds: (string | number | number[]), formats: (string | number)[], strings: string[]) {
+            if (Array.isArray(sheetIds)) {
+                const readStreams: Transform[] = [];
+                let streamsActive = 0;
+                sheetIds.forEach(function (idx, n) {
+                    zip.stream(`xl/worksheets/sheet${idx + 1}.xml`, (err: any, stream: ReadStream) => {
+                        readStreams[n] = stream
+                            .pipe(saxStream({
+                            strict: true,
+                            tag: 'row'
+                        }))
+                        .pipe(getTransform(formats, strings, []));
+                        streamsActive++;
+                        stream.on('end', () => {
+                            streamsActive--;
+                            if (!streamsActive) {
+                                zip.close();
+                            }
+                        });
+                    });
                 });
-                resolve(readStream);
-            });
+                let streamsReady = false;
+                while (!streamsReady) {
+                    streamsReady = true;
+                    sheetIds.forEach(function (idx, n) {
+                        if (typeof readStreams[n] === 'undefined') {
+                            streamsReady = false;
+                        }
+                    });
+                    let p = new Promise(function (resolve) {
+                        setTimeout( function() { resolve(true); }, 10 );
+                    });
+                    await p;
+                }
+                resolve(readStreams);
+            } else {
+                zip.stream(`xl/worksheets/sheet${sheetIds}.xml`, (err: any, stream: ReadStream) => {
+                    const readStream = stream
+                        .pipe(saxStream({
+                            strict: true,
+                            tag: 'row'
+                        }))
+                        .pipe(getTransform(formats, strings, []));
+                    stream.on('end', () => {
+                        zip.close();
+                    });
+                    resolve(readStream);
+                });
+            }
         }
 
-        let header: string[] = [];
-        let zip = obj.zip;
-        let options = obj.options;
-        if (typeof sheet === 'number') {
-            processSheet(`${sheet + 1}`, obj.formats, obj.strings);
-        } else if (typeof sheet === 'string') {
-            processSheet(`${obj.sheets.indexOf(sheet) + 1}`, obj.formats, obj.strings);
-        }
-    });
-}
-
-export function getXlsxObj(options: IXlsxStreamOptions) {
-    return new Promise<IXlsxObj>((resolve, reject) => {
-
-        function processSharedStrings() {
+        function processSharedStrings(sheetIds: (string | number | number[]), numberFormats: any, formats: (string | number)[]) {
+            const strings: string[] = [];
             for (let i = 0; i < formats.length; i++) {
                 const format = numberFormats[formats[i]];
                 if (format) {
                     formats[i] = format;
                 }
             }
-            const obj: IXlsxObj = {
-                options: options,
-                zip: zip,
-                zipClosed: false,
-                sheets: sheets,
-                formats: formats,
-                strings: strings,
-            };
             zip.stream('xl/sharedStrings.xml', (err: any, stream: ReadStream) => {
                 if (stream) {
                     stream.pipe(saxStream({
@@ -125,27 +134,29 @@ export function getXlsxObj(options: IXlsxStreamOptions) {
                         tag: 'si'
                     })).on('data', (x: any) => {
                         if (x.children.t) {
-                            obj.strings.push(x.children.t.value);
+                            strings.push(x.children.t.value);
                         } else {
                             let str = '';
                             for (let i = 0; i < x.children.r.length; i++) {
                                 const ch = x.children.r[i].children;
                                 str += ch.t.value;
                             }
-                            obj.strings.push(str);
+                            strings.push(str);
                         }
                     });
                     stream.on('end', () => {
-                        resolve(obj);
+                        processSheets(sheetIds, formats, strings);
                     });
                 } else {
-                    resolve(obj);
+                    processSheets(sheetIds, formats, strings);
                 }
             });
         }
 
-        function processStyles() {
+        function processStyles(sheetIds: (string | number | number[])) {
             zip.stream(`xl/styles.xml`, (err: any, stream: ReadStream) => {
+                const numberFormats: any = {};
+                const formats: (string | number)[] = [];
                 stream.pipe(saxStream({
                     strict: true,
                     tag: ['cellXfs', 'numFmts']
@@ -163,13 +174,14 @@ export function getXlsxObj(options: IXlsxStreamOptions) {
                     }
                 });
                 stream.on('end', () => {
-                    processSharedStrings();
+                    processSharedStrings(sheetIds, numberFormats, formats);
                 });
             });
         }
 
         function processWorkbook() {
             zip.stream('xl/workbook.xml', (err: any, stream: ReadStream) => {
+                const sheets: string[] = [];
                 stream.pipe(saxStream({
                     strict: true,
                     tag: 'sheet'
@@ -178,15 +190,17 @@ export function getXlsxObj(options: IXlsxStreamOptions) {
                     sheets.push(attribs.name);
                 });
                 stream.on('end', () => {
-                    processStyles();
+                    if (typeof options.sheet === 'number') {
+                        processStyles(`${options.sheet + 1}`);
+                    } else if (typeof options.sheet === 'string') {
+                        processStyles(`${sheets.indexOf(options.sheet) + 1}`);
+                    } else if (Array.isArray(options.sheet)) {
+                        processStyles(options.sheet);
+                    }
                 });
             });
         }
 
-        const sheets: string[] = [];
-        const numberFormats: any = {};
-        const formats: (string | number)[] = [];
-        const strings: string[] = [];
         const zip = new StreamZip({
             file: options.filePath,
             storeEntries: true
@@ -196,18 +210,6 @@ export function getXlsxObj(options: IXlsxStreamOptions) {
         });
         zip.on('error', (err: any) => {
             reject(new Error(err));
-        });
-    });
-}
-
-export function getXlsxStream(options: IXlsxStreamOptions) {
-    return new Promise<Transform>((resolve, reject) => {
-        getXlsxObj(options)
-        .then(function(obj) {
-            resolve(getXlsxSheetStream(obj, options.sheet));
-        })
-        .catch(function(result) {
-            reject(result);
         });
     });
 }
