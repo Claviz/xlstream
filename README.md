@@ -19,7 +19,7 @@ npm install xlstream
 `source.xlsx` contents:
 
 | A     | B   |
-| ----- | --- |
+|-------|-----|
 | hello | 123 |
 
 Where `123` is a `123.123` number formatted to be rounded to integer.
@@ -52,13 +52,32 @@ Result:
 ```
 
 ## getXlsxStream
+Returns transform stream of the sheet.
 
 ### Options
 
 | option      | type                 | description                                                                              |
-| ----------- | -------------------- | ---------------------------------------------------------------------------------------- |
+|-------------|----------------------|------------------------------------------------------------------------------------------|
 | filePath    | `string`             | Path to the XLSX file                                                                    |
 | sheet       | `string` or `number` | If `string` is passed, finds sheet by it's name. If `number`, finds sheet by it's index. |
+| withHeader  | `boolean`            | If `true`, column names will be taken from the first sheet row.                          |
+| ignoreEmpty | `boolean`            | If `true`, empty rows won't be emitted.                                                  |
+
+## getXlsxStreams
+Async [generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) which yields transform streams of the sheets.
+
+### Options
+
+| option   | type                   | description                                 |
+|----------|------------------------|---------------------------------------------|
+| filePath | `string`               | Path to the XLSX file                       |
+| sheets   | array of sheet objects | Options of sheet object can be found below. |
+
+#### Sheet object
+
+| option      | type                 | description                                                                              |
+|-------------|----------------------|------------------------------------------------------------------------------------------|
+| id          | `string` or `number` | If `string` is passed, finds sheet by it's name. If `number`, finds sheet by it's index. |
 | withHeader  | `boolean`            | If `true`, column names will be taken from the first sheet row.                          |
 | ignoreEmpty | `boolean`            | If `true`, empty rows won't be emitted.                                                  |
 
@@ -68,7 +87,7 @@ Returns array of sheet names.
 ### Options
 
 | option   | type     | description           |
-| -------- | -------- | --------------------- |
+|----------|----------|-----------------------|
 | filePath | `string` | Path to the XLSX file |
 
 ## Building

@@ -1,4 +1,5 @@
 import { getXlsxStream, getXlsxStreams, getWorksheets } from '../src';
+import { Transform } from 'stream';
 
 it('reads XLSX file correctly', async (done) => {
     const data: any = [];
@@ -124,36 +125,28 @@ it(`throws expected bad archive error`, async (done) => {
 
 it(`reads 2 sheets from XLSX file using generator`, async (done) => {
     const data: any = [];
-    try {
-        const generator = await getXlsxStreams({
-            filePath: './tests/assets/worksheets-reordered.xlsx',
-            sheets: [
-                {
-                    id: 2,
-                    ignoreEmpty: true
-                },
-                {
-                    id: 'Sheet1',
-                    ignoreEmpty: true
-                }
-            ]
-        });
-        for await (const stream of generator) {
-            let sheetDone = false;
-            stream.on('data',x => data.push(x));
-            stream.on('end', () => {
-                sheetDone = true;
-            });
-            while (!sheetDone) {
-                await new Promise(function(resolve) {
-                    setTimeout( function() { resolve(true); }, 100);
-                });
+    const generator = await getXlsxStreams({
+        filePath: './tests/assets/worksheets-reordered.xlsx',
+        sheets: [
+            {
+                id: 2,
+                ignoreEmpty: true
+            },
+            {
+                id: 'Sheet1',
+                ignoreEmpty: true
             }
-        }
-        expect(data).toMatchSnapshot();
-        done();
-    } catch (err) {
-        expect(err).toMatchSnapshot();
-        done();
+        ]
+    });
+    function processSheet(stream: Transform) {
+        return new Promise((resolve, reject) => {
+            stream.on('data', (x: any) => data.push(x));
+            stream.on('end', () => { resolve() });
+        });
     }
+    for await (const stream of generator) {
+        await processSheet(stream);
+    }
+    expect(data).toMatchSnapshot();
+    done();
 });
