@@ -185,6 +185,49 @@ Array [
 ]
 `;
 
+exports[`reads 2 sheets from XLSX file using generator 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "Sheet3",
+      ],
+      "obj": Object {
+        "A": "Sheet3",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        "Sheet3",
+      ],
+      "obj": Object {
+        "A": "Sheet3",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "Sheet1",
+      ],
+      "obj": Object {
+        "A": "Sheet1",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        "Sheet1",
+      ],
+      "obj": Object {
+        "A": "Sheet1",
+      },
+    },
+  },
+]
+`;
+
 exports[`reads empty XLSX file correctly 1`] = `Array []`;
 
 exports[`throws expected bad archive error 1`] = `[Error: Archive read error]`;
