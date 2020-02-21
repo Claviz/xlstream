@@ -128,12 +128,12 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions) {
                         strict: true,
                         tag: ['cellXfs', 'numFmts']
                     })).on('data', (x: any) => {
-                        if (x.tag === 'numFmts') {
+                        if (x.tag === 'numFmts' && x.record.children) {
                             const children = x.record.children.numFmt.length ? x.record.children.numFmt : [x.record.children.numFmt];
                             for (let i = 0; i < children.length; i++) {
                                 numberFormats[Number(children[i].attribs.numFmtId)] = children[i].attribs.formatCode;
                             }
-                        } else if (x.tag === 'cellXfs') {
+                        } else if (x.tag === 'cellXfs' && x.record.children) {
                             for (let i = 0; i < x.record.children.xf.length; i++) {
                                 const ch = x.record.children.xf[i];
                                 formats[i] = Number(ch.attribs.numFmtId);
