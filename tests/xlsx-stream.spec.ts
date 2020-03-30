@@ -1,5 +1,6 @@
 import { getXlsxStream, getXlsxStreams, getWorksheets } from '../src';
 import { Transform } from 'stream';
+import { open } from 'fs';
 
 it('reads XLSX file correctly', async (done) => {
     const data: any = [];

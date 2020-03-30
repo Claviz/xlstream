@@ -87,6 +87,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions) {
         file: options.filePath,
         storeEntries: true
     });
+    let currentSheetIndex = 0;
     function setupGenericData() {
         return new Promise((resolve, reject) => {
             function processSharedStrings(numberFormats: any, formats: (string | number)[]) {
@@ -178,20 +179,25 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions) {
                         tag: 'row'
                     }))
                     .pipe(getTransform(formats, strings, [], withHeader, ignoreEmpty));
+                readStream.on('end', () => {
+                    if (currentSheetIndex + 1 === options.sheets.length) {
+                        zip.close();
+                    }
+                });
                 resolve(readStream);
             });
         });
     }
     await setupGenericData();
-    for (let i = 0; i < options.sheets.length; i++) {
-        const id = options.sheets[i].id;
+    for (currentSheetIndex = 0; currentSheetIndex < options.sheets.length; currentSheetIndex++) {
+        const id = options.sheets[currentSheetIndex].id;
         let sheetId: string = '';
         if (typeof id === 'number') {
             sheetId = `${id + 1}`;
         } else if (typeof id === 'string') {
             sheetId = `${sheets.indexOf(id) + 1}`;
         }
-        const transform = await getSheetTransform(sheetId, options.sheets[i].withHeader, options.sheets[i].ignoreEmpty);
+        const transform = await getSheetTransform(sheetId, options.sheets[currentSheetIndex].withHeader, options.sheets[currentSheetIndex].ignoreEmpty);
 
         yield transform;
     }
