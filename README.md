@@ -9,6 +9,7 @@ Memory-efficiently turns XLSX file into a [transform stream](https://nodejs.org/
 * Stream is **pausable**.
 * Emits all **default events** (`data`, `end`, etc.)
 * Returns **header**, **raw** and **formatted** row data in just one `data` event.
+* Maintains desirable behavior of **merged cells**.
 
 ## Installation
 ```
@@ -56,13 +57,13 @@ Returns transform stream of the sheet.
 
 ### Options
 
-| option          | type                 | description                                                                                                                                                                                                                                                        |
-|-----------------|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| filePath        | `string`             | Path to the XLSX file                                                                                                                                                                                                                                              |
-| sheet           | `string` or `number` | If `string` is passed, finds sheet by it's name. If `number`, finds sheet by it's index.                                                                                                                                                                           |
-| withHeader      | `boolean`            | If `true`, column names will be taken from the first sheet row. If duplicated header name is found, column name will be prepended with column letter to maintain uniqueness.                                                                                       |
-| ignoreEmpty     | `boolean`            | If `true`, empty rows won't be emitted.                                                                                                                                                                                                                            |
-| fillMergedCells | `boolean`            | If `true`, merged cells wil have the same value (by default, only the first cell of merged cells is filled with value). **Warning!** Enabling this feature may increase streaming time because file must be processed to detect merged cells before actual stream. |
+| option          | type                 | description                                                                                                                                                                                                                                                         |
+|-----------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| filePath        | `string`             | Path to the XLSX file                                                                                                                                                                                                                                               |
+| sheet           | `string` or `number` | If `string` is passed, finds sheet by it's name. If `number`, finds sheet by it's index.                                                                                                                                                                            |
+| withHeader      | `boolean`            | If `true`, column names will be taken from the first sheet row. If duplicated header name is found, column name will be prepended with column letter to maintain uniqueness.                                                                                        |
+| ignoreEmpty     | `boolean`            | If `true`, empty rows won't be emitted.                                                                                                                                                                                                                             |
+| fillMergedCells | `boolean`            | If `true`, merged cells will have the same value (by default, only the first cell of merged cells is filled with value). **Warning!** Enabling this feature may increase streaming time because file must be processed to detect merged cells before actual stream. |
 
 ## getXlsxStreams
 Async [generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) which yields transform streams of the sheets.
@@ -76,12 +77,12 @@ Async [generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 
 #### Sheet object
 
-| option          | type                 | description                                                                                                                                                                                                                                                        |
-|-----------------|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| id              | `string` or `number` | If `string` is passed, finds sheet by it's name. If `number`, finds sheet by it's index.                                                                                                                                                                           |
-| withHeader      | `boolean`            | If `true`, column names will be taken from the first sheet row. If duplicated header name is found, column name will be prepended with column letter to maintain uniqueness.                                                                                       |
-| ignoreEmpty     | `boolean`            | If `true`, empty rows won't be emitted.                                                                                                                                                                                                                            |
-| fillMergedCells | `boolean`            | If `true`, merged cells wil have the same value (by default, only the first cell of merged cells is filled with value). **Warning!** Enabling this feature may increase streaming time because file must be processed to detect merged cells before actual stream. |
+| option          | type                 | description                                                                                                                                                                                                                                                         |
+|-----------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id              | `string` or `number` | If `string` is passed, finds sheet by it's name. If `number`, finds sheet by it's index.                                                                                                                                                                            |
+| withHeader      | `boolean`            | If `true`, column names will be taken from the first sheet row. If duplicated header name is found, column name will be prepended with column letter to maintain uniqueness.                                                                                        |
+| ignoreEmpty     | `boolean`            | If `true`, empty rows won't be emitted.                                                                                                                                                                                                                             |
+| fillMergedCells | `boolean`            | If `true`, merged cells will have the same value (by default, only the first cell of merged cells is filled with value). **Warning!** Enabling this feature may increase streaming time because file must be processed to detect merged cells before actual stream. |
 
 ## getWorksheets
 Returns array of sheet names.
