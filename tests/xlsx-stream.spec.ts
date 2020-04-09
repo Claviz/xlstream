@@ -42,6 +42,20 @@ it('reads XLSX file with header', async (done) => {
     })
 });
 
+it('reads XLSX file with header values being dupicated', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/with-header-duplicated.xlsx',
+        sheet: 0,
+        withHeader: true,
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});
+
 it('ignores empty rows', async (done) => {
     const data: any = [];
     const stream = await getXlsxStream({
@@ -150,4 +164,33 @@ it(`reads 2 sheets from XLSX file using generator`, async (done) => {
     }
     expect(data).toMatchSnapshot();
     done();
+});
+
+it('fills merged cells with data', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/merged-cells.xlsx',
+        sheet: 0,
+        fillMergedCells: true,
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});
+
+it('fills merged cells with data if header has merged cells', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/merged-cells-with-header.xlsx',
+        sheet: 0,
+        fillMergedCells: true,
+        withHeader: true,
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
 });

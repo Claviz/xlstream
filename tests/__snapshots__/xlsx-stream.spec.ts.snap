@@ -24,6 +24,588 @@ Array [
 ]
 `;
 
+exports[`fills merged cells with data 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        "text1",
+        "text1",
+        "text1",
+      ],
+      "obj": Object {
+        "C": "text1",
+        "D": "text1",
+        "E": "text1",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        "text1",
+        "text1",
+        "text1",
+      ],
+      "obj": Object {
+        "C": "text1",
+        "D": "text1",
+        "E": "text1",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        "$5.67",
+      ],
+      "obj": Object {
+        "C": "$5.67",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        5.66666,
+      ],
+      "obj": Object {
+        "C": 5.66666,
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        "$5.67",
+      ],
+      "obj": Object {
+        "C": "$5.67",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        5.66666,
+      ],
+      "obj": Object {
+        "C": 5.66666,
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        "$5.67",
+      ],
+      "obj": Object {
+        "C": "$5.67",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        5.66666,
+      ],
+      "obj": Object {
+        "C": 5.66666,
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        "text3",
+        "text3",
+        "text3",
+      ],
+      "obj": Object {
+        "D": "text3",
+        "E": "text3",
+        "F": "text3",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        "text3",
+        "text3",
+        "text3",
+      ],
+      "obj": Object {
+        "D": "text3",
+        "E": "text3",
+        "F": "text3",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        "text3",
+        "text3",
+        "text3",
+      ],
+      "obj": Object {
+        "D": "text3",
+        "E": "text3",
+        "F": "text3",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        "text3",
+        "text3",
+        "text3",
+      ],
+      "obj": Object {
+        "D": "text3",
+        "E": "text3",
+        "F": "text3",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        "text4",
+        "text4",
+      ],
+      "obj": Object {
+        "H": "text4",
+        "I": "text4",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        "text4",
+        "text4",
+      ],
+      "obj": Object {
+        "H": "text4",
+        "I": "text4",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        "text4",
+        "text4",
+      ],
+      "obj": Object {
+        "H": "text4",
+        "I": "text4",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        "text4",
+        "text4",
+      ],
+      "obj": Object {
+        "H": "text4",
+        "I": "text4",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        "text4",
+        "text4",
+      ],
+      "obj": Object {
+        "H": "text4",
+        "I": "text4",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        "text4",
+        "text4",
+      ],
+      "obj": Object {
+        "H": "text4",
+        "I": "text4",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        "text4",
+        "text4",
+      ],
+      "obj": Object {
+        "H": "text4",
+        "I": "text4",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        "text4",
+        "text4",
+      ],
+      "obj": Object {
+        "H": "text4",
+        "I": "text4",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        "text4",
+        "text4",
+      ],
+      "obj": Object {
+        "H": "text4",
+        "I": "text4",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        "text4",
+        "text4",
+      ],
+      "obj": Object {
+        "H": "text4",
+        "I": "text4",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        "text4",
+        "text4",
+      ],
+      "obj": Object {
+        "H": "text4",
+        "I": "text4",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        "text4",
+        "text4",
+      ],
+      "obj": Object {
+        "H": "text4",
+        "I": "text4",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        "text4",
+        "text4",
+      ],
+      "obj": Object {
+        "H": "text4",
+        "I": "text4",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        "text4",
+        "text4",
+      ],
+      "obj": Object {
+        "H": "text4",
+        "I": "text4",
+      },
+    },
+  },
+]
+`;
+
+exports[`fills merged cells with data if header has merged cells 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        1,
+        2,
+        3,
+        4,
+      ],
+      "obj": Object {
+        "[A] merged header #1": 1,
+        "[B] merged header #1": 2,
+        "[C] merged header #2": 3,
+        "[D] merged header #2": 4,
+      },
+    },
+    "header": Array [
+      "[A] merged header #1",
+      "[B] merged header #1",
+      "[C] merged header #2",
+      "[D] merged header #2",
+    ],
+    "raw": Object {
+      "arr": Array [
+        1,
+        2,
+        3,
+        4,
+      ],
+      "obj": Object {
+        "[A] merged header #1": 1,
+        "[B] merged header #1": 2,
+        "[C] merged header #2": 3,
+        "[D] merged header #2": 4,
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        5,
+        6,
+        7,
+        8,
+      ],
+      "obj": Object {
+        "[A] merged header #1": 5,
+        "[B] merged header #1": 6,
+        "[C] merged header #2": 7,
+        "[D] merged header #2": 8,
+      },
+    },
+    "header": Array [
+      "[A] merged header #1",
+      "[B] merged header #1",
+      "[C] merged header #2",
+      "[D] merged header #2",
+    ],
+    "raw": Object {
+      "arr": Array [
+        5,
+        6,
+        7,
+        8,
+      ],
+      "obj": Object {
+        "[A] merged header #1": 5,
+        "[B] merged header #1": 6,
+        "[C] merged header #2": 7,
+        "[D] merged header #2": 8,
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        "merged",
+        "merged",
+      ],
+      "obj": Object {
+        "[C] merged header #2": "merged",
+        "[D] merged header #2": "merged",
+      },
+    },
+    "header": Array [
+      "[A] merged header #1",
+      "[B] merged header #1",
+      "[C] merged header #2",
+      "[D] merged header #2",
+    ],
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        "merged",
+        "merged",
+      ],
+      "obj": Object {
+        "[C] merged header #2": "merged",
+        "[D] merged header #2": "merged",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        "merged",
+        "merged",
+      ],
+      "obj": Object {
+        "[C] merged header #2": "merged",
+        "[D] merged header #2": "merged",
+      },
+    },
+    "header": Array [
+      "[A] merged header #1",
+      "[B] merged header #1",
+      "[C] merged header #2",
+      "[D] merged header #2",
+    ],
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        undefined,
+        "merged",
+        "merged",
+      ],
+      "obj": Object {
+        "[C] merged header #2": "merged",
+        "[D] merged header #2": "merged",
+      },
+    },
+  },
+]
+`;
+
 exports[`gets worksheet by index, even if they are reordered 1`] = `
 Array [
   Object {
@@ -123,6 +705,49 @@ Array [
 ]
 `;
 
+exports[`reads 2 sheets from XLSX file using generator 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "Sheet3",
+      ],
+      "obj": Object {
+        "A": "Sheet3",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        "Sheet3",
+      ],
+      "obj": Object {
+        "A": "Sheet3",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "Sheet1",
+      ],
+      "obj": Object {
+        "A": "Sheet1",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        "Sheet1",
+      ],
+      "obj": Object {
+        "A": "Sheet1",
+      },
+    },
+  },
+]
+`;
+
 exports[`reads XLSX file correctly 1`] = `
 Array [
   Object {
@@ -185,43 +810,77 @@ Array [
 ]
 `;
 
-exports[`reads 2 sheets from XLSX file using generator 1`] = `
+exports[`reads XLSX file with header values being dupicated 1`] = `
 Array [
   Object {
     "formatted": Object {
       "arr": Array [
-        "Sheet3",
+        1,
+        2,
+        3,
+        4,
       ],
       "obj": Object {
-        "A": "Sheet3",
+        "[B] header2": 2,
+        "[C] header2": 3,
+        "header1": 1,
+        "header3": 4,
       },
     },
-    "header": Array [],
+    "header": Array [
+      "header1",
+      "[B] header2",
+      "[C] header2",
+      "header3",
+    ],
     "raw": Object {
       "arr": Array [
-        "Sheet3",
+        1,
+        2,
+        3,
+        4,
       ],
       "obj": Object {
-        "A": "Sheet3",
+        "[B] header2": 2,
+        "[C] header2": 3,
+        "header1": 1,
+        "header3": 4,
       },
     },
   },
   Object {
     "formatted": Object {
       "arr": Array [
-        "Sheet1",
+        5,
+        6,
+        7,
+        8,
       ],
       "obj": Object {
-        "A": "Sheet1",
+        "[B] header2": 6,
+        "[C] header2": 7,
+        "header1": 5,
+        "header3": 8,
       },
     },
-    "header": Array [],
+    "header": Array [
+      "header1",
+      "[B] header2",
+      "[C] header2",
+      "header3",
+    ],
     "raw": Object {
       "arr": Array [
-        "Sheet1",
+        5,
+        6,
+        7,
+        8,
       ],
       "obj": Object {
-        "A": "Sheet1",
+        "[B] header2": 6,
+        "[C] header2": 7,
+        "header1": 5,
+        "header3": 8,
       },
     },
   },

@@ -3,6 +3,7 @@ export interface IXlsxStreamOptions {
     sheet: string | number;
     withHeader?: boolean;
     ignoreEmpty?: boolean;
+    fillMergedCells?: boolean;
 }
 
 export interface IXlsxStreamsOptions {
@@ -11,9 +12,25 @@ export interface IXlsxStreamsOptions {
         id: string | number;
         withHeader?: boolean;
         ignoreEmpty?: boolean;
+        fillMergedCells?: boolean;
     }[];
 }
 
 export interface IWorksheetOptions {
     filePath: string;
+}
+
+export interface IMergedCellDictionary {
+    [row: number]: {
+        [column: string]: {
+            parent: {
+                column: string;
+                row: number;
+            };
+            value: {
+                raw: any;
+                formatted: any;
+            };
+        }
+    };
 }
