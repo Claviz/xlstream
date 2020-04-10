@@ -61,9 +61,14 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
             for (let i = 0; i < children.length; i++) {
                 const ch = children[i];
                 if (ch.children) {
-                    let value = ch.children.v.value;
-                    if (ch.attribs.t === 's') {
-                        value = strings[value];
+                    let value: any;
+                    if (ch.attribs.t === 'inlineStr') {
+                        value = ch.children.is.children.t.value;
+                    } else {
+                        value = ch.children.v.value;
+                        if (ch.attribs.t === 's') {
+                            value = strings[value];
+                        }
                     }
                     value = isNaN(value) ? value : Number(value);
                     let column = ch.attribs.r.replace(/[0-9]/g, '');
