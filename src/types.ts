@@ -20,6 +20,11 @@ export interface IWorksheetOptions {
     filePath: string;
 }
 
+export interface IWorksheet {
+    name: string;
+    hidden: boolean;
+}
+
 export interface IMergedCellDictionary {
     [row: number]: {
         [column: string]: {

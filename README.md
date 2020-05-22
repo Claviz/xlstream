@@ -85,7 +85,7 @@ Async [generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 | fillMergedCells | `boolean`            | If `true`, merged cells will have the same value (by default, only the first cell of merged cells is filled with value). **Warning!** Enabling this feature may increase streaming time because file must be processed to detect merged cells before actual stream. |
 
 ## getWorksheets
-Returns array of sheet names.
+Returns array of sheets with `name` and `hidden` info.
 
 ### Options
 

@@ -70,15 +70,27 @@ it('ignores empty rows', async (done) => {
     })
 });
 
-it('gets worksheet names list', async (done) => {
+it('gets worksheets', async (done) => {
     const sheets = await getWorksheets({
         filePath: './tests/assets/worksheets.xlsx',
     });
     expect(sheets).toEqual([
-        'Sheet1',
-        'Sheet2',
-        'Sheet3',
-        'Sheet4',
+        { name: 'Sheet1', hidden: false, },
+        { name: 'Sheet2', hidden: false, },
+        { name: 'Sheet3', hidden: false, },
+        { name: 'Sheet4', hidden: false, },
+    ]);
+    done();
+});
+
+it('gets worksheets with correct hidden info', async (done) => {
+    const sheets = await getWorksheets({
+        filePath: './tests/assets/hidden-sheet.xlsx',
+    });
+    expect(sheets).toEqual([
+        { name: 'Sheet1', hidden: false, },
+        { name: 'Sheet2', hidden: true, },
+        { name: 'Sheet3', hidden: false, },
     ]);
     done();
 });
