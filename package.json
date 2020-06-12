@@ -1,6 +1,6 @@
 {
   "name": "xlstream",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Turns XLSX into a readable stream.",
   "main": "lib/index",
   "types": "lib/index",

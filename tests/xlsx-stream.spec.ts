@@ -206,3 +206,17 @@ it('fills merged cells with data if header has merged cells', async (done) => {
         done();
     })
 });
+
+it('correctly handles shared string if it has just one value in cell', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/shared-string-single-value.xlsx',
+        sheet: 0,
+        ignoreEmpty: true,
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});

@@ -181,11 +181,12 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
                         })).on('data', (x: any) => {
                             if (x.children.t) {
                                 strings.push(x.children.t.value);
+                            } else if (!x.children.r.length) {
+                                strings.push(x.children.r.children.t.value);
                             } else {
                                 let str = '';
                                 for (let i = 0; i < x.children.r.length; i++) {
-                                    const ch = x.children.r[i].children;
-                                    str += ch.t.value;
+                                    str += x.children.r[i].children.t.value;
                                 }
                                 strings.push(str);
                             }

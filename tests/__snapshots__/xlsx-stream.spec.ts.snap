@@ -1,5 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`correctly handles shared string if it has just one value in cell 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "Email test",
+      ],
+      "obj": Object {
+        "A": "Email test",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        "Email test",
+      ],
+      "obj": Object {
+        "A": "Email test",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        "test@test.com",
+      ],
+      "obj": Object {
+        "B": "test@test.com",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        "test@test.com",
+      ],
+      "obj": Object {
+        "B": "test@test.com",
+      },
+    },
+  },
+]
+`;
+
 exports[`doesn't fail when empty row has custom height 1`] = `
 Array [
   Object {
