@@ -855,6 +855,167 @@ Array [
 ]
 `;
 
+exports[`reads XLSX file with header located in specific row 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "void1",
+        "void2",
+      ],
+      "obj": Object {
+        "A": "void1",
+        "B": "void2",
+      },
+    },
+    "header": Array [
+      "header1",
+      "header2",
+    ],
+    "raw": Object {
+      "arr": Array [
+        "void1",
+        "void2",
+      ],
+      "obj": Object {
+        "A": "void1",
+        "B": "void2",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "void3",
+        "void4",
+      ],
+      "obj": Object {
+        "A": "void3",
+        "B": "void4",
+      },
+    },
+    "header": Array [
+      "header1",
+      "header2",
+    ],
+    "raw": Object {
+      "arr": Array [
+        "void3",
+        "void4",
+      ],
+      "obj": Object {
+        "A": "void3",
+        "B": "void4",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "a",
+        "b",
+      ],
+      "obj": Object {
+        "header1": "a",
+        "header2": "b",
+      },
+    },
+    "header": Array [
+      "header1",
+      "header2",
+    ],
+    "raw": Object {
+      "arr": Array [
+        "a",
+        "b",
+      ],
+      "obj": Object {
+        "header1": "a",
+        "header2": "b",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "c",
+        "d",
+      ],
+      "obj": Object {
+        "header1": "c",
+        "header2": "d",
+      },
+    },
+    "header": Array [
+      "header1",
+      "header2",
+    ],
+    "raw": Object {
+      "arr": Array [
+        "c",
+        "d",
+      ],
+      "obj": Object {
+        "header1": "c",
+        "header2": "d",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "e",
+        "f",
+      ],
+      "obj": Object {
+        "header1": "e",
+        "header2": "f",
+      },
+    },
+    "header": Array [
+      "header1",
+      "header2",
+    ],
+    "raw": Object {
+      "arr": Array [
+        "e",
+        "f",
+      ],
+      "obj": Object {
+        "header1": "e",
+        "header2": "f",
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "g",
+        "h",
+      ],
+      "obj": Object {
+        "header1": "g",
+        "header2": "h",
+      },
+    },
+    "header": Array [
+      "header1",
+      "header2",
+    ],
+    "raw": Object {
+      "arr": Array [
+        "g",
+        "h",
+      ],
+      "obj": Object {
+        "header1": "g",
+        "header2": "h",
+      },
+    },
+  },
+]
+`;
+
 exports[`reads XLSX file with header values being dupicated 1`] = `
 Array [
   Object {

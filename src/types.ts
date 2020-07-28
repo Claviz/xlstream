@@ -1,7 +1,7 @@
 export interface IXlsxStreamOptions {
     filePath: string;
     sheet: string | number;
-    withHeader?: boolean;
+    withHeader?: boolean | number;
     ignoreEmpty?: boolean;
     fillMergedCells?: boolean;
 }
@@ -10,7 +10,7 @@ export interface IXlsxStreamsOptions {
     filePath: string;
     sheets: {
         id: string | number;
-        withHeader?: boolean;
+        withHeader?: boolean | number;
         ignoreEmpty?: boolean;
         fillMergedCells?: boolean;
     }[];

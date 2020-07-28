@@ -220,3 +220,17 @@ it('correctly handles shared string if it has just one value in cell', async (do
         done();
     })
 });
+
+it('reads XLSX file with header located in specific row', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/with-header-number.xlsx',
+        sheet: 0,
+        withHeader: 5,
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});

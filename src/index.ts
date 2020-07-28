@@ -46,7 +46,7 @@ function fillMergedCells(dict: IMergedCellDictionary, currentRowName: any, arr: 
     }
 }
 
-function getTransform(formats: (string | number)[], strings: string[], dict?: IMergedCellDictionary, withHeader?: boolean, ignoreEmpty?: boolean) {
+function getTransform(formats: (string | number)[], strings: string[], dict?: IMergedCellDictionary, withHeader?: boolean | number, ignoreEmpty?: boolean) {
     let lastReceivedRow: number;
     let header: any[] = [];
     return new Transform({
@@ -93,7 +93,7 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
             if (dict?.[lastReceivedRow]) {
                 fillMergedCells(dict, lastReceivedRow, arr, obj, formattedArr, formattedObj);
             }
-            if (withHeader && !header.length) {
+            if (((typeof withHeader === 'number' && withHeader === lastReceivedRow - 1) || (typeof withHeader !== 'number' && withHeader)) && !header.length) {
                 for (let i = 0; i < arr.length; i++) {
                     const hasDuplicate = arr.filter(x => x === arr[i]).length > 1;
                     header[i] = hasDuplicate ? `[${numbersToLetter(i + 1)}] ${arr[i]}` : arr[i];
@@ -290,7 +290,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
             });
         });
     }
-    async function getSheetTransform(sheetId: string, withHeader?: boolean, ignoreEmpty?: boolean, fillMergedCells?: boolean) {
+    async function getSheetTransform(sheetId: string, withHeader?: boolean | number, ignoreEmpty?: boolean, fillMergedCells?: boolean) {
         let dict: IMergedCellDictionary | undefined;
         if (fillMergedCells) {
             dict = await getMergedCellDictionary(sheetId);
