@@ -4,7 +4,7 @@
 
 # xlstream
 
-Memory-efficiently turns XLSX file into a [transform stream](https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams) with all it's benefits.
+Memory-efficiently turns XLSX file into a [transform stream](https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams) with all its benefits.
 
 * Stream is **pausable**.
 * Emits all **default events** (`data`, `end`, etc.)
