@@ -1095,4 +1095,55 @@ Array [
 
 exports[`reads empty XLSX file correctly 1`] = `Array []`;
 
+exports[`reads number values with leading zeroes correctly 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "0000",
+        0,
+      ],
+      "obj": Object {
+        "A": "0000",
+        "B": 0,
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        "0000",
+        0,
+      ],
+      "obj": Object {
+        "A": "0000",
+        "B": 0,
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "0001",
+        1,
+      ],
+      "obj": Object {
+        "A": "0001",
+        "B": 1,
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        "0001",
+        1,
+      ],
+      "obj": Object {
+        "A": "0001",
+        "B": 1,
+      },
+    },
+  },
+]
+`;
+
 exports[`throws expected bad archive error 1`] = `[Error: Archive read error]`;

@@ -46,6 +46,13 @@ function fillMergedCells(dict: IMergedCellDictionary, currentRowName: any, arr: 
     }
 }
 
+function formatNumericValue(attr: string, value: any) {
+    if (attr === 'inlineStr' || attr === 's') {
+        return value;
+    }
+    return isNaN(value) ? value : Number(value);
+}
+
 function getTransform(formats: (string | number)[], strings: string[], dict?: IMergedCellDictionary, withHeader?: boolean | number, ignoreEmpty?: boolean) {
     let lastReceivedRow: number;
     let header: any[] = [];
@@ -70,7 +77,7 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
                             value = strings[value];
                         }
                     }
-                    value = isNaN(value) ? value : Number(value);
+                    value = formatNumericValue(ch.attribs.t, value);
                     let column = ch.attribs.r.replace(/[0-9]/g, '');
                     const index = lettersToNumber(column) - 1;
                     if (dict?.[lastReceivedRow]?.[column]) {
@@ -81,7 +88,7 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
                     const formatId = ch.attribs.s ? Number(ch.attribs.s) : 0;
                     if (formatId) {
                         value = ssf.format(formats[formatId], value);
-                        value = isNaN(value) ? value : Number(value);
+                        value = formatNumericValue(ch.attribs.t, value);
                     }
                     if (dict?.[lastReceivedRow]?.[column]) {
                         dict[lastReceivedRow][column].value.formatted = value;

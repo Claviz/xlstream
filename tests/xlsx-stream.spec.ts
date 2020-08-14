@@ -234,3 +234,16 @@ it('reads XLSX file with header located in specific row', async (done) => {
         done();
     })
 });
+
+it('reads number values with leading zeroes correctly', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/zeroes.xlsx',
+        sheet: 0,
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});
