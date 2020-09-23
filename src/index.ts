@@ -1,11 +1,14 @@
+import fclone from 'fclone';
+import path from 'path';
 import ssf from 'ssf';
 import { Transform } from 'stream';
 import { ReadStream } from 'tty';
 
-import { IMergedCellDictionary, IWorksheetOptions, IXlsxStreamOptions, IXlsxStreamsOptions, IWorksheet } from './types';
+import { IMergedCellDictionary, IWorksheet, IWorksheetOptions, IXlsxStreamOptions, IXlsxStreamsOptions } from './types';
 
 const StreamZip = require('node-stream-zip');
 const saxStream = require('sax-stream');
+const rename = require('deep-rename-keys');
 
 function lettersToNumber(letters: string) {
     return letters.split('').reduce((r, a) => r * 26 + parseInt(a, 36) - 9, 0);
@@ -54,7 +57,7 @@ function formatNumericValue(attr: string, value: any) {
 }
 
 function getTransform(formats: (string | number)[], strings: string[], dict?: IMergedCellDictionary, withHeader?: boolean | number, ignoreEmpty?: boolean) {
-    let lastReceivedRow: number;
+    let lastReceivedRow = 0;
     let header: any[] = [];
     return new Transform({
         objectMode: true,
@@ -63,32 +66,39 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
             let formattedArr = [];
             let obj: any = {};
             let formattedObj: any = {};
-            const children = chunk.children ? chunk.children.c.length ? chunk.children.c : [chunk.children.c] : [];
-            lastReceivedRow = chunk.attribs.r;
+            const record = rename(fclone(chunk.record), (key: string) => {
+                const keySplit = key.split(':');
+                const tag = keySplit.length === 2 ? keySplit[1] : key;
+                return tag;
+            });
+            const children = record.children ? record.children.c.length ? record.children.c : [record.children.c] : [];
+            lastReceivedRow = record.attribs?.r || lastReceivedRow + 1;
             for (let i = 0; i < children.length; i++) {
                 const ch = children[i];
                 if (ch.children) {
                     let value: any;
-                    if (ch.attribs.t === 'inlineStr') {
+                    const type = ch.attribs?.t;
+                    const columnName = ch.attribs?.r;
+                    const formatId = ch.attribs?.s ? Number(ch.attribs.s) : 0;
+                    if (type === 'inlineStr') {
                         value = ch.children.is.children.t.value;
                     } else {
                         value = ch.children.v.value;
-                        if (ch.attribs.t === 's') {
+                        if (type === 's') {
                             value = strings[value];
                         }
                     }
-                    value = formatNumericValue(ch.attribs.t, value);
-                    let column = ch.attribs.r.replace(/[0-9]/g, '');
+                    value = formatNumericValue(type, value);
+                    let column = columnName ? columnName.replace(/[0-9]/g, '') : numbersToLetter(i + 1);
                     const index = lettersToNumber(column) - 1;
                     if (dict?.[lastReceivedRow]?.[column]) {
                         dict[lastReceivedRow][column].value.raw = value;
                     }
                     arr[index] = value;
                     obj[column] = value;
-                    const formatId = ch.attribs.s ? Number(ch.attribs.s) : 0;
                     if (formatId) {
                         value = ssf.format(formats[formatId], value);
-                        value = formatNumericValue(ch.attribs.t, value);
+                        value = formatNumericValue(type, value);
                     }
                     if (dict?.[lastReceivedRow]?.[column]) {
                         dict[lastReceivedRow][column].value.formatted = value;
@@ -160,9 +170,9 @@ export async function getXlsxStream(options: IXlsxStreamOptions): Promise<Transf
     const stream = await generator.next();
     return stream.value;
 }
-
 export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenerator<Transform> {
-    const sheets: string[] = [];
+    const sheets: { relsId: string; name: string; }[] = [];
+    const rels: { [id: string]: string } = {};
     const numberFormats: any = {};
     const formats: (string | number)[] = [];
     const strings: string[] = [];
@@ -184,16 +194,17 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
                     if (stream) {
                         stream.pipe(saxStream({
                             strict: true,
-                            tag: 'si'
+                            tag: ['x:si', 'si']
                         })).on('data', (x: any) => {
-                            if (x.children.t) {
-                                strings.push(x.children.t.value);
-                            } else if (!x.children.r.length) {
-                                strings.push(x.children.r.children.t.value);
+                            const record = x.record;
+                            if (record.children.t) {
+                                strings.push(record.children.t.value);
+                            } else if (!record.children.r.length) {
+                                strings.push(record.children.r.children.t.value);
                             } else {
                                 let str = '';
-                                for (let i = 0; i < x.children.r.length; i++) {
-                                    str += x.children.r[i].children.t.value;
+                                for (let i = 0; i < record.children.r.length; i++) {
+                                    str += record.children.r[i].children.t.value;
                                 }
                                 strings.push(str);
                             }
@@ -209,25 +220,29 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
 
             function processStyles() {
                 zip.stream(`xl/styles.xml`, (err: any, stream: ReadStream) => {
-                    stream.pipe(saxStream({
-                        strict: true,
-                        tag: ['cellXfs', 'numFmts']
-                    })).on('data', (x: any) => {
-                        if (x.tag === 'numFmts' && x.record.children) {
-                            const children = x.record.children.numFmt.length ? x.record.children.numFmt : [x.record.children.numFmt];
-                            for (let i = 0; i < children.length; i++) {
-                                numberFormats[Number(children[i].attribs.numFmtId)] = children[i].attribs.formatCode;
+                    if (stream) {
+                        stream.pipe(saxStream({
+                            strict: true,
+                            tag: ['x:cellXfs', 'x:numFmts', 'cellXfs', 'numFmts']
+                        })).on('data', (x: any) => {
+                            if ((x.tag === 'numFmts' || x.tag === 'x:numFmts') && x.record.children) {
+                                const children = x.record.children.numFmt.length ? x.record.children.numFmt : [x.record.children.numFmt];
+                                for (let i = 0; i < children.length; i++) {
+                                    numberFormats[Number(children[i].attribs.numFmtId)] = children[i].attribs.formatCode;
+                                }
+                            } else if ((x.tag === 'cellXfs' || x.tag === 'x:cellXfs') && x.record.children) {
+                                for (let i = 0; i < x.record.children.xf.length; i++) {
+                                    const ch = x.record.children.xf[i];
+                                    formats[i] = Number(ch.attribs.numFmtId);
+                                }
                             }
-                        } else if (x.tag === 'cellXfs' && x.record.children) {
-                            for (let i = 0; i < x.record.children.xf.length; i++) {
-                                const ch = x.record.children.xf[i];
-                                formats[i] = Number(ch.attribs.numFmtId);
-                            }
-                        }
-                    });
-                    stream.on('end', () => {
+                        });
+                        stream.on('end', () => {
+                            processSharedStrings(numberFormats, formats);
+                        });
+                    } else {
                         processSharedStrings(numberFormats, formats);
-                    });
+                    }
                 });
             }
 
@@ -235,10 +250,10 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
                 zip.stream('xl/workbook.xml', (err: any, stream: ReadStream) => {
                     stream.pipe(saxStream({
                         strict: true,
-                        tag: 'sheet'
+                        tag: ['x:sheet', 'sheet']
                     })).on('data', (x: any) => {
-                        const attribs = x.attribs;
-                        sheets.push(attribs.name);
+                        const attribs = x.record.attribs;
+                        sheets.push({ name: attribs.name, relsId: attribs['r:id'] });
                     });
                     stream.on('end', () => {
                         processStyles();
@@ -246,28 +261,43 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
                 });
             }
 
+            function getRels() {
+                zip.stream('xl/_rels/workbook.xml.rels', (err: any, stream: ReadStream) => {
+                    stream.pipe(saxStream({
+                        strict: true,
+                        tag: ['x:Relationship', 'Relationship']
+                    })).on('data', (x: any) => {
+                        rels[x.record.attribs.Id] = path.basename(x.record.attribs.Target);
+                    });
+                    stream.on('end', () => {
+                        processWorkbook();
+                    });
+                });
+            }
+
             zip.on('ready', () => {
-                processWorkbook();
+                getRels();
             });
             zip.on('error', (err: any) => {
                 reject(new Error(err));
             });
         });
     }
-    function getMergedCellDictionary(sheetId: string) {
+    function getMergedCellDictionary(sheetFileName: string) {
         return new Promise<IMergedCellDictionary>((resolve, reject) => {
-            zip.stream(`xl/worksheets/sheet${sheetId}.xml`, (err: any, stream: ReadStream) => {
+            zip.stream(`xl/worksheets/${sheetFileName}`, (err: any, stream: ReadStream) => {
                 const dict: IMergedCellDictionary = {};
                 const readStream = stream
                     .pipe(saxStream({
                         strict: true,
-                        tag: 'mergeCell'
+                        tag: ['x:mergeCell', 'mergeCell']
                     }));
                 readStream.on('end', () => {
                     resolve(dict);
                 });
                 readStream.on('data', (a: any) => {
-                    const mergedCellRange: string = a.attribs.ref;
+                    const record = a.record;
+                    const mergedCellRange: string = record.attribs.ref;
                     const mergedCellRangeSplit = mergedCellRange.split(':');
                     const mergedCellRangeStart = mergedCellRangeSplit[0];
                     const mergedCellRangeEnd = mergedCellRangeSplit[1];
@@ -297,17 +327,17 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
             });
         });
     }
-    async function getSheetTransform(sheetId: string, withHeader?: boolean | number, ignoreEmpty?: boolean, fillMergedCells?: boolean) {
+    async function getSheetTransform(sheetFileName: string, withHeader?: boolean | number, ignoreEmpty?: boolean, fillMergedCells?: boolean) {
         let dict: IMergedCellDictionary | undefined;
         if (fillMergedCells) {
-            dict = await getMergedCellDictionary(sheetId);
+            dict = await getMergedCellDictionary(sheetFileName);
         }
         return new Promise<Transform>((resolve, reject) => {
-            zip.stream(`xl/worksheets/sheet${sheetId}.xml`, (err: any, stream: ReadStream) => {
+            zip.stream(`xl/worksheets/${sheetFileName}`, (err: any, stream: ReadStream) => {
                 const readStream = stream
                     .pipe(saxStream({
                         strict: true,
-                        tag: 'row'
+                        tag: ['x:row', 'row']
                     }))
                     .pipe(getTransform(formats, strings, dict, withHeader, ignoreEmpty));
                 readStream.on('end', () => {
@@ -322,13 +352,14 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
     await setupGenericData();
     for (currentSheetIndex = 0; currentSheetIndex < options.sheets.length; currentSheetIndex++) {
         const id = options.sheets[currentSheetIndex].id;
-        let sheetId: string = '';
+        let sheetIndex = 0;
         if (typeof id === 'number') {
-            sheetId = `${id + 1}`;
+            sheetIndex = id;
         } else if (typeof id === 'string') {
-            sheetId = `${sheets.indexOf(id) + 1}`;
+            sheetIndex = sheets.findIndex(x => x.name === id);
         }
-        const transform = await getSheetTransform(sheetId, options.sheets[currentSheetIndex].withHeader, options.sheets[currentSheetIndex].ignoreEmpty, options.sheets[currentSheetIndex].fillMergedCells);
+        const sheetFileName = rels[sheets[sheetIndex].relsId];
+        const transform = await getSheetTransform(sheetFileName, options.sheets[currentSheetIndex].withHeader, options.sheets[currentSheetIndex].ignoreEmpty, options.sheets[currentSheetIndex].fillMergedCells);
 
         yield transform;
     }
@@ -340,11 +371,11 @@ export function getWorksheets(options: IWorksheetOptions) {
             zip.stream('xl/workbook.xml', (err: any, stream: ReadStream) => {
                 stream.pipe(saxStream({
                     strict: true,
-                    tag: 'sheet'
+                    tag: ['x:sheet', 'sheet'],
                 })).on('data', (x: any) => {
                     sheets.push({
-                        name: x.attribs.name,
-                        hidden: x.attribs.state && x.attribs.state === 'hidden' ? true : false,
+                        name: x.record.attribs.name,
+                        hidden: x.record.attribs.state && x.record.attribs.state === 'hidden' ? true : false,
                     });
                 });
                 stream.on('end', () => {

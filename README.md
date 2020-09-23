@@ -10,6 +10,7 @@ Memory-efficiently turns XLSX file into a [transform stream](https://nodejs.org/
 * Emits all **default events** (`data`, `end`, etc.)
 * Returns **header**, **raw** and **formatted** row data in just one `data` event.
 * Maintains desirable behavior of **merged cells**.
+* Supports files created by OpenXML. 
 
 ## Installation
 ```

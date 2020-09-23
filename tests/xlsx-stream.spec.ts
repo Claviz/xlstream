@@ -247,3 +247,16 @@ it('reads number values with leading zeroes correctly', async (done) => {
         done();
     })
 });
+
+it('correctly reads file created with OpenXML (with `x` namespaces)', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/open-xml.xlsx',
+        sheet: 0,
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});

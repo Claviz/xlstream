@@ -45,6 +45,34 @@ Array [
 ]
 `;
 
+exports[`correctly reads file created with OpenXML (with \`x\` namespaces) 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "a",
+        "b",
+      ],
+      "obj": Object {
+        "A": "a",
+        "B": "b",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        "a",
+        "b",
+      ],
+      "obj": Object {
+        "A": "a",
+        "B": "b",
+      },
+    },
+  },
+]
+`;
+
 exports[`doesn't fail when empty row has custom height 1`] = `
 Array [
   Object {
