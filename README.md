@@ -2,7 +2,7 @@
 [![codecov](https://codecov.io/gh/Claviz/xlstream/branch/master/graph/badge.svg)](https://codecov.io/gh/Claviz/xlstream)
 ![npm](https://img.shields.io/npm/v/xlstream.svg)
 
-# xlstream
+## xlstream
 
 Memory-efficiently turns XLSX file into a [transform stream](https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams) with all its benefits.
 
@@ -10,7 +10,7 @@ Memory-efficiently turns XLSX file into a [transform stream](https://nodejs.org/
 * Emits all **default events** (`data`, `end`, etc.)
 * Returns **header**, **raw** and **formatted** row data in just one `data` event.
 * Maintains desirable behavior of **merged cells**.
-* Supports files created by OpenXML. 
+* Supports files created by _OpenXML_. 
 
 ## Installation
 ```
@@ -26,7 +26,7 @@ npm install xlstream
 
 Where `123` is a `123.123` number formatted to be rounded to integer.
 
-Script:
+**Script:**
 ```javascript
 const { getXlsxStream } = require('xlstream');
 
@@ -38,7 +38,8 @@ const { getXlsxStream } = require('xlstream');
     stream.on('data', x => console.log(x));
 })();
 ```
-Result:
+
+**Result:**
 ```JSON
 { 
     "raw": { 
@@ -54,11 +55,11 @@ Result:
 ```
 
 ## getXlsxStream
-Returns transform stream of the sheet.
+Returns _transform stream_ of the sheet.
 
 ### Options
 
-| option          | type                  | description                                                                                                                                                                                                                                                               |
+| Option          | Type                  | Description                                                                                                                                                                                                                                                              |
 |-----------------|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | filePath        | `string`              | Path to the XLSX file                                                                                                                                                                                                                                                     |
 | sheet           | `string` or `number`  | If `string` is passed, finds sheet by it's name. If `number`, finds sheet by it's index.                                                                                                                                                                                  |
@@ -71,14 +72,14 @@ Async [generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 
 ### Options
 
-| option   | type                   | description                                 |
+| Option   | Type                   | Description                                 |
 |----------|------------------------|---------------------------------------------|
-| filePath | `string`               | Path to the XLSX file                       |
+| filePath | `string`               | Path to the _XLSX file_                       |
 | sheets   | array of sheet objects | Options of sheet object can be found below. |
 
 #### Sheet object
 
-| option          | type                 | description                                                                                                                                                                                                                                                               |
+| Option          | Type                 | Description                                                                                                                                                                                                                                                               |
 |-----------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | id              | `string` or `number` | If `string` is passed, finds sheet by it's name. If `number`, finds sheet by it's index.                                                                                                                                                                                  |
 | withHeader      | `boolean`            | If `true`, column names will be taken from the first sheet row. If duplicated header name is found, column name will be prepended with column letter to maintain uniqueness. 0-based row location can be passed to this option if header is not located on the first row. |
@@ -90,9 +91,9 @@ Returns array of sheets with `name` and `hidden` info.
 
 ### Options
 
-| option   | type     | description           |
+| Option   | Type     | Description           |
 |----------|----------|-----------------------|
-| filePath | `string` | Path to the XLSX file |
+| filePath | `string` | Path to the _XLSX file_ |
 
 ## Building
 
