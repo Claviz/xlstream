@@ -2,7 +2,7 @@
 [![codecov](https://codecov.io/gh/Claviz/xlstream/branch/master/graph/badge.svg)](https://codecov.io/gh/Claviz/xlstream)
 ![npm](https://img.shields.io/npm/v/xlstream.svg)
 
-## xlstream
+# xlstream
 
 Memory-efficiently turns XLSX file into a [transform stream](https://nodejs.org/api/stream.html#stream_duplex_and_transform_streams) with all its benefits.
 
