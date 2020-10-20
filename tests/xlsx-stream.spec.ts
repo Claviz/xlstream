@@ -260,3 +260,36 @@ it('correctly reads file created with OpenXML (with `x` namespaces)', async (don
         done();
     })
 });
+
+it(`applies custom number format`, async (done) => {
+    const data: any = [];
+    const generator = await getXlsxStreams({
+        filePath: './tests/assets/custom-number-format.xlsx',
+        sheets: [
+            {
+                id: 0,
+            },
+            {
+                id: 1,
+                numberFormat: 'excel',
+            },
+            {
+                id: 2,
+                numberFormat: {
+                    47: 'mm ss'
+                },
+            }
+        ]
+    });
+    function processSheet(stream: Transform) {
+        return new Promise((resolve, reject) => {
+            stream.on('data', (x: any) => data.push(x));
+            stream.on('end', () => { resolve() });
+        });
+    }
+    for await (const stream of generator) {
+        await processSheet(stream);
+    }
+    expect(data).toMatchSnapshot();
+    done();
+});

@@ -1,9 +1,12 @@
+export type numberFormatType = 'standard' | 'excel' | { [formatId in number | string]: string };
+
 export interface IXlsxStreamOptions {
     filePath: string;
     sheet: string | number;
     withHeader?: boolean | number;
     ignoreEmpty?: boolean;
     fillMergedCells?: boolean;
+    numberFormat?: numberFormatType;
 }
 
 export interface IXlsxStreamsOptions {
@@ -13,6 +16,7 @@ export interface IXlsxStreamsOptions {
         withHeader?: boolean | number;
         ignoreEmpty?: boolean;
         fillMergedCells?: boolean;
+        numberFormat?: numberFormatType;
     }[];
 }
 

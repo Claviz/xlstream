@@ -4,7 +4,7 @@ import ssf from 'ssf';
 import { Transform } from 'stream';
 import { ReadStream } from 'tty';
 
-import { IMergedCellDictionary, IWorksheet, IWorksheetOptions, IXlsxStreamOptions, IXlsxStreamsOptions } from './types';
+import { IMergedCellDictionary, IWorksheet, IWorksheetOptions, IXlsxStreamOptions, IXlsxStreamsOptions, numberFormatType } from './types';
 
 const StreamZip = require('node-stream-zip');
 const saxStream = require('sax-stream');
@@ -56,7 +56,7 @@ function formatNumericValue(attr: string, value: any) {
     return isNaN(value) ? value : Number(value);
 }
 
-function getTransform(formats: (string | number)[], strings: string[], dict?: IMergedCellDictionary, withHeader?: boolean | number, ignoreEmpty?: boolean) {
+function getTransform(formats: (string | number)[], strings: string[], dict?: IMergedCellDictionary, withHeader?: boolean | number, ignoreEmpty?: boolean, numberFormat?: numberFormatType) {
     let lastReceivedRow = 0;
     let header: any[] = [];
     return new Transform({
@@ -97,7 +97,13 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
                     arr[index] = value;
                     obj[column] = value;
                     if (formatId) {
-                        value = ssf.format(formats[formatId], value);
+                        let numFormat = formats[formatId];
+                        if (numberFormat && numberFormat === 'excel' && typeof numFormat === 'number' && excelNumberFormat[numFormat]) {
+                            numFormat = excelNumberFormat[numFormat];
+                        } else if (numberFormat && typeof numberFormat === 'object') {
+                            numFormat = numberFormat[numFormat];
+                        }
+                        value = ssf.format(numFormat, value);
                         value = formatNumericValue(type, value);
                     }
                     if (dict?.[lastReceivedRow]?.[column]) {
@@ -165,6 +171,7 @@ export async function getXlsxStream(options: IXlsxStreamOptions): Promise<Transf
             withHeader: options.withHeader,
             ignoreEmpty: options.ignoreEmpty,
             fillMergedCells: options.fillMergedCells,
+            numberFormat: options.numberFormat,
         }]
     });
     const stream = await generator.next();
@@ -327,7 +334,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
             });
         });
     }
-    async function getSheetTransform(sheetFileName: string, withHeader?: boolean | number, ignoreEmpty?: boolean, fillMergedCells?: boolean) {
+    async function getSheetTransform(sheetFileName: string, withHeader?: boolean | number, ignoreEmpty?: boolean, fillMergedCells?: boolean, numberFormat?: numberFormatType) {
         let dict: IMergedCellDictionary | undefined;
         if (fillMergedCells) {
             dict = await getMergedCellDictionary(sheetFileName);
@@ -339,7 +346,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
                         strict: true,
                         tag: ['x:row', 'row']
                     }))
-                    .pipe(getTransform(formats, strings, dict, withHeader, ignoreEmpty));
+                    .pipe(getTransform(formats, strings, dict, withHeader, ignoreEmpty, numberFormat));
                 readStream.on('end', () => {
                     if (currentSheetIndex + 1 === options.sheets.length) {
                         zip.close();
@@ -351,7 +358,8 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
     }
     await setupGenericData();
     for (currentSheetIndex = 0; currentSheetIndex < options.sheets.length; currentSheetIndex++) {
-        const id = options.sheets[currentSheetIndex].id;
+        const sheet = options.sheets[currentSheetIndex];
+        const id = sheet.id;
         let sheetIndex = 0;
         if (typeof id === 'number') {
             sheetIndex = id;
@@ -359,7 +367,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
             sheetIndex = sheets.findIndex(x => x.name === id);
         }
         const sheetFileName = rels[sheets[sheetIndex].relsId];
-        const transform = await getSheetTransform(sheetFileName, options.sheets[currentSheetIndex].withHeader, options.sheets[currentSheetIndex].ignoreEmpty, options.sheets[currentSheetIndex].fillMergedCells);
+        const transform = await getSheetTransform(sheetFileName, sheet.withHeader, sheet.ignoreEmpty, sheet.fillMergedCells, sheet.numberFormat);
 
         yield transform;
     }
@@ -394,4 +402,14 @@ export function getWorksheets(options: IWorksheetOptions) {
             processWorkbook();
         });
     });
+}
+
+export const excelNumberFormat: { [format: number]: string } = {
+    14: 'm/d/yyyy',
+    22: 'm/d/yyyy h:mm',
+    37: '#,##0_);(#,##0)',
+    38: '#,##0_);[Red](#,##0)',
+    39: '#,##0.00_);(#,##0.00)',
+    40: '#,##0.00_);[Red](#,##0.00)',
+    47: 'mm:ss.0',
 }

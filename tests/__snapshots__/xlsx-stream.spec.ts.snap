@@ -1,5 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`applies custom number format 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        5931.2,
+      ],
+      "obj": Object {
+        "A": 5931.2,
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        0.333,
+      ],
+      "obj": Object {
+        "A": 0.333,
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "59:31.2",
+      ],
+      "obj": Object {
+        "A": "59:31.2",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        0.333,
+      ],
+      "obj": Object {
+        "A": 0.333,
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "59 31",
+      ],
+      "obj": Object {
+        "A": "59 31",
+      },
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [
+        0.333,
+      ],
+      "obj": Object {
+        "A": 0.333,
+      },
+    },
+  },
+]
+`;
+
 exports[`correctly handles shared string if it has just one value in cell 1`] = `
 Array [
   Object {
