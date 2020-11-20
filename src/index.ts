@@ -377,6 +377,9 @@ export function getWorksheets(options: IWorksheetOptions) {
     return new Promise<IWorksheet[]>((resolve, reject) => {
         function processWorkbook() {
             zip.stream('xl/workbook.xml', (err: any, stream: ReadStream) => {
+                if (err) {
+                    reject(err);
+                }
                 stream.pipe(saxStream({
                     strict: true,
                     tag: ['x:sheet', 'sheet'],
@@ -390,6 +393,7 @@ export function getWorksheets(options: IWorksheetOptions) {
                     zip.close();
                     resolve(sheets);
                 });
+                stream.on('error', reject);
             });
         }
 
@@ -401,6 +405,7 @@ export function getWorksheets(options: IWorksheetOptions) {
         zip.on('ready', () => {
             processWorkbook();
         });
+        zip.on('error', reject);
     });
 }
 
