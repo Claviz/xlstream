@@ -95,6 +95,12 @@ it('gets worksheets with correct hidden info', async (done) => {
     done();
 });
 
+it('get worksheets should fail gracefully for a corrupted xlsx', () => {
+    return getWorksheets({
+        filePath: './tests/assets/corrupted-file.xlsx',
+    }).catch(e => expect(e).toMatch('Bad archive'));
+});
+
 it('gets worksheet by name, even if they are reordered', async (done) => {
     const data: any = [];
     const stream = await getXlsxStream({
