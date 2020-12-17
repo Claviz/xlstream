@@ -1,6 +1,6 @@
 {
   "name": "xlstream",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "Turns XLSX into a readable stream.",
   "main": "lib/index",
   "types": "lib/index",
@@ -24,16 +24,15 @@
     "@types/jest": "^24.0.0",
     "@types/node": "^10.12.24",
     "codecov": "^3.5.0",
-    "jest": "^24.1.0",
-    "ts-jest": "^23.10.5",
-    "typescript": "^3.8.3"
+    "jest": "26.4.2",
+    "typescript": "^3.8.3",
+    "ts-jest": "26.4.2"
   },
   "dependencies": {
     "deep-rename-keys": "^0.2.1",
     "fclone": "^1.0.11",
     "node-stream-zip": "^1.11.3",
     "sax-stream": "^1.3.0",
-    "saxophone": "^0.6.1",
     "ssf": "^0.11.2"
   }
 }
