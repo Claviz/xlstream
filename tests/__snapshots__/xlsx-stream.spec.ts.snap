@@ -1183,6 +1183,132 @@ Array [
 ]
 `;
 
+exports[`reads XLSX file with header values being undefined 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        1,
+        2,
+        3,
+        4,
+      ],
+      "obj": Object {
+        "[B]": 2,
+        "[C]": 3,
+        "columnA": 1,
+        "columnD": 4,
+      },
+    },
+    "header": Array [
+      "columnA",
+      "[B]",
+      "[C]",
+      "columnD",
+    ],
+    "raw": Object {
+      "arr": Array [
+        1,
+        2,
+        3,
+        4,
+      ],
+      "obj": Object {
+        "[B]": 2,
+        "[C]": 3,
+        "columnA": 1,
+        "columnD": 4,
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        1,
+        undefined,
+        3,
+        4,
+        5,
+      ],
+      "obj": Object {
+        "[C]": 3,
+        "[E]": 5,
+        "columnA": 1,
+        "columnD": 4,
+      },
+    },
+    "header": Array [
+      "columnA",
+      "[B]",
+      "[C]",
+      "columnD",
+      "[E]",
+    ],
+    "raw": Object {
+      "arr": Array [
+        1,
+        undefined,
+        3,
+        4,
+        5,
+      ],
+      "obj": Object {
+        "[C]": 3,
+        "[E]": 5,
+        "columnA": 1,
+        "columnD": 4,
+      },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+      ],
+      "obj": Object {
+        "[B]": 2,
+        "[C]": 3,
+        "[E]": 5,
+        "[F]": 6,
+        "columnA": 1,
+        "columnD": 4,
+      },
+    },
+    "header": Array [
+      "columnA",
+      "[B]",
+      "[C]",
+      "columnD",
+      "[E]",
+      "[F]",
+    ],
+    "raw": Object {
+      "arr": Array [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+      ],
+      "obj": Object {
+        "[B]": 2,
+        "[C]": 3,
+        "[E]": 5,
+        "[F]": 6,
+        "columnA": 1,
+        "columnD": 4,
+      },
+    },
+  },
+]
+`;
+
 exports[`reads empty XLSX file correctly 1`] = `Array []`;
 
 exports[`reads number values with leading zeroes correctly 1`] = `

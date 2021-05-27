@@ -35,9 +35,22 @@ function applyHeaderToObj(obj: any, header: any) {
     const newObj: { [key: string]: any } = {};
     for (const columnName of Object.keys(obj)) {
         const index = lettersToNumber(columnName) - 1;
-        newObj[header[index]] = obj[columnName];
+        newObj[header[index] || `[${columnName}]`] = obj[columnName];
     }
     return newObj;
+}
+
+function getFilledHeader(arr: any[], header: any[]) {
+    if (!header || !header.length) {
+        return header;
+    }
+    const filledHeader = [];
+    for (let i = 0; i < arr.length; i++) {
+        filledHeader.push(
+            header[i] ? header[i] : `[${numbersToLetter(i + 1)}]`
+        );
+    }
+    return filledHeader;
 }
 
 function fillMergedCells(dict: IMergedCellDictionary, currentRowName: any, arr: any, obj: any, formattedArr: any, formattedObj: any) {
@@ -132,7 +145,7 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
                         obj: applyHeaderToObj(formattedObj, header),
                         arr: formattedArr,
                     },
-                    header,
+                    header: getFilledHeader(arr, header),
                 });
             }
         },
@@ -154,7 +167,7 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
                             obj: applyHeaderToObj(formattedObj, header),
                             arr: formattedArr,
                         },
-                        header,
+                        header: getFilledHeader(arr, header),
                     });
                 }
             }
@@ -189,7 +202,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
     });
     let currentSheetIndex = 0;
     function setupGenericData() {
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             function processSharedStrings(numberFormats: any, formats: (string | number)[]) {
                 for (let i = 0; i < formats.length; i++) {
                     const format = numberFormats[formats[i]];

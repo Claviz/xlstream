@@ -172,7 +172,7 @@ it(`reads 2 sheets from XLSX file using generator`, async (done) => {
         ]
     });
     function processSheet(stream: Transform) {
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             stream.on('data', (x: any) => data.push(x));
             stream.on('end', () => { resolve() });
         });
@@ -288,7 +288,7 @@ it(`applies custom number format`, async (done) => {
         ]
     });
     function processSheet(stream: Transform) {
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             stream.on('data', (x: any) => data.push(x));
             stream.on('end', () => { resolve() });
         });
@@ -298,4 +298,18 @@ it(`applies custom number format`, async (done) => {
     }
     expect(data).toMatchSnapshot();
     done();
+});
+
+it('reads XLSX file with header values being undefined', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/multiple-undefined-columns-as-header.xlsx',
+        sheet: 0,
+        withHeader: true,
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
 });
