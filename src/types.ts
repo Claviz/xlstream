@@ -7,6 +7,7 @@ export interface IXlsxStreamOptions {
     ignoreEmpty?: boolean;
     fillMergedCells?: boolean;
     numberFormat?: numberFormatType;
+    addMissingRows?: boolean;
 }
 
 export interface IXlsxStreamsOptions {
@@ -17,6 +18,7 @@ export interface IXlsxStreamsOptions {
         ignoreEmpty?: boolean;
         fillMergedCells?: boolean;
         numberFormat?: numberFormatType;
+        addMissingRows?: boolean;
     }[];
 }
 
