@@ -84,22 +84,7 @@ it('does not ignore empty rows with data when ignoreEmpty is false', async (done
     })
 });
 
-it('adds empty rows not containing data when ignoreEmpty is false and addMissingRows is true', async (done) => {
-    const data: any = [];
-    const stream = await getXlsxStream({
-        filePath: './tests/assets/empty-rows-missing.xlsx',
-        sheet: 0,
-        ignoreEmpty: false,
-        addMissingRows: true
-    });
-    stream.on('data', x => data.push(x));
-    stream.on('end', () => {
-        expect(data).toMatchSnapshot();
-        done();
-    })
-});
-
-it('does not add empty rows not containing data when ignoreEmpty is false and addMissingRows is false (default)', async (done) => {
+it('adds empty rows not containing data when ignoreEmpty is false', async (done) => {
     const data: any = [];
     const stream = await getXlsxStream({
         filePath: './tests/assets/empty-rows-missing.xlsx',

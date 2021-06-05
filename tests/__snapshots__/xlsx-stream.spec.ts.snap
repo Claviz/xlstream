@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`adds empty rows not containing data when ignoreEmpty is false and addMissingRows is true 1`] = `
+exports[`adds empty rows not containing data when ignoreEmpty is false 1`] = `
 Array [
   Object {
     "formatted": Object {
@@ -213,57 +213,6 @@ Array [
       "obj": Object {
         "A": "a",
         "B": "b",
-      },
-    },
-  },
-]
-`;
-
-exports[`does not add empty rows not containing data when ignoreEmpty is false and addMissingRows is false (default) 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        "hello",
-        "world",
-      ],
-      "obj": Object {
-        "A": "hello",
-        "B": "world",
-      },
-    },
-    "header": Array [],
-    "raw": Object {
-      "arr": Array [
-        "hello",
-        "world",
-      ],
-      "obj": Object {
-        "A": "hello",
-        "B": "world",
-      },
-    },
-  },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        "hello",
-        "world",
-      ],
-      "obj": Object {
-        "A": "hello",
-        "B": "world",
-      },
-    },
-    "header": Array [],
-    "raw": Object {
-      "arr": Array [
-        "hello",
-        "world",
-      ],
-      "obj": Object {
-        "A": "hello",
-        "B": "world",
       },
     },
   },
@@ -493,6 +442,17 @@ Array [
   },
   Object {
     "formatted": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+  },
+  Object {
+    "formatted": Object {
       "arr": Array [
         undefined,
         undefined,
@@ -555,6 +515,50 @@ Array [
         "E": "text3",
         "F": "text3",
       },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+    "header": Array [],
+    "raw": Object {
+      "arr": Array [],
+      "obj": Object {},
     },
   },
   Object {
@@ -1168,6 +1172,20 @@ exports[`reads XLSX file with header located in specific row 1`] = `
 Array [
   Object {
     "formatted": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+    "header": Array [
+      "header1",
+      "header2",
+    ],
+    "raw": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+  },
+  Object {
+    "formatted": Object {
       "arr": Array [
         "void1",
         "void2",
@@ -1216,6 +1234,34 @@ Array [
         "A": "void3",
         "B": "void4",
       },
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+    "header": Array [
+      "header1",
+      "header2",
+    ],
+    "raw": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+    "header": Array [
+      "header1",
+      "header2",
+    ],
+    "raw": Object {
+      "arr": Array [],
+      "obj": Object {},
     },
   },
   Object {

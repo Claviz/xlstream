@@ -69,7 +69,7 @@ function formatNumericValue(attr: string, value: any) {
   return isNaN(value) ? value : Number(value);
 }
 
-function getTransform(formats: (string | number)[], strings: string[], dict?: IMergedCellDictionary, withHeader?: boolean | number, ignoreEmpty?: boolean, numberFormat?: numberFormatType, addMissingRows?: boolean) {
+function getTransform(formats: (string | number)[], strings: string[], dict?: IMergedCellDictionary, withHeader?: boolean | number, ignoreEmpty?: boolean, numberFormat?: numberFormatType) {
   let lastReceivedRow = 0;
   let header: any[] = [];
   return new Transform({
@@ -87,7 +87,7 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
       const children = record.children ? record.children.c.length ? record.children.c : [record.children.c] : [];
       const nextRow = record.attribs ? parseInt(record.attribs.r) : lastReceivedRow + 1;
 
-      if (!ignoreEmpty && addMissingRows) {
+      if (!ignoreEmpty) {
         const emptyRowCount = nextRow - lastReceivedRow - 1;
         for (let i = 0; i < emptyRowCount; i++) {
           this.push({
@@ -203,8 +203,7 @@ export async function getXlsxStream(options: IXlsxStreamOptions): Promise<Transf
       withHeader: options.withHeader,
       ignoreEmpty: options.ignoreEmpty,
       fillMergedCells: options.fillMergedCells,
-      numberFormat: options.numberFormat,
-      addMissingRows: options.addMissingRows
+      numberFormat: options.numberFormat
     }]
   });
   const stream = await generator.next();
@@ -371,7 +370,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
     });
   }
 
-  async function getSheetTransform(sheetFileName: string, withHeader?: boolean | number, ignoreEmpty?: boolean, fillMergedCells?: boolean, numberFormat?: numberFormatType, addMissingRows?: boolean) {
+  async function getSheetTransform(sheetFileName: string, withHeader?: boolean | number, ignoreEmpty?: boolean, fillMergedCells?: boolean, numberFormat?: numberFormatType) {
     let dict: IMergedCellDictionary | undefined;
     if (fillMergedCells) {
       dict = await getMergedCellDictionary(sheetFileName);
@@ -383,7 +382,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
             strict: true,
             tag: ['x:row', 'row']
           }))
-          .pipe(getTransform(formats, strings, dict, withHeader, ignoreEmpty, numberFormat, addMissingRows));
+          .pipe(getTransform(formats, strings, dict, withHeader, ignoreEmpty, numberFormat));
         readStream.on('end', () => {
           if (currentSheetIndex + 1 === options.sheets.length) {
             zip.close();
@@ -405,7 +404,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
       sheetIndex = sheets.findIndex(x => x.name === id);
     }
     const sheetFileName = rels[sheets[sheetIndex].relsId];
-    const transform = await getSheetTransform(sheetFileName, sheet.withHeader, sheet.ignoreEmpty, sheet.fillMergedCells, sheet.numberFormat, sheet.addMissingRows);
+    const transform = await getSheetTransform(sheetFileName, sheet.withHeader, sheet.ignoreEmpty, sheet.fillMergedCells, sheet.numberFormat);
 
     yield transform;
   }
