@@ -70,6 +70,34 @@ it('ignores empty rows', async (done) => {
     })
 });
 
+it('does not ignore empty rows with data when ignoreEmpty is false', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/empty-rows.xlsx',
+        sheet: 0,
+        ignoreEmpty: false,
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});
+
+it('adds empty rows not containing data when ignoreEmpty is false', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/empty-rows-missing.xlsx',
+        sheet: 0,
+        ignoreEmpty: false
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});
+
 it('gets worksheets', async (done) => {
     const sheets = await getWorksheets({
         filePath: './tests/assets/worksheets.xlsx',

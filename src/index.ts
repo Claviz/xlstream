@@ -85,7 +85,24 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
                 return tag;
             });
             const children = record.children ? record.children.c.length ? record.children.c : [record.children.c] : [];
-            lastReceivedRow = record.attribs?.r || lastReceivedRow + 1;
+            const nextRow = record.attribs ? parseInt(record.attribs.r) : lastReceivedRow + 1;
+            if (!ignoreEmpty) {
+                const emptyRowCount = nextRow - lastReceivedRow - 1;
+                for (let i = 0; i < emptyRowCount; i++) {
+                    this.push({
+                        raw: {
+                            obj: {},
+                            arr: []
+                        },
+                        formatted: {
+                            obj: {},
+                            arr: []
+                        },
+                        header: getFilledHeader(arr, header),
+                    })
+                }
+            }
+            lastReceivedRow = nextRow;
             for (let i = 0; i < children.length; i++) {
                 const ch = children[i];
                 if (ch.children) {
@@ -190,6 +207,7 @@ export async function getXlsxStream(options: IXlsxStreamOptions): Promise<Transf
     const stream = await generator.next();
     return stream.value;
 }
+
 export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenerator<Transform> {
     const sheets: { relsId: string; name: string; }[] = [];
     const rels: { [id: string]: string } = {};
@@ -201,6 +219,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
         storeEntries: true
     });
     let currentSheetIndex = 0;
+
     function setupGenericData() {
         return new Promise<void>((resolve, reject) => {
             function processSharedStrings(numberFormats: any, formats: (string | number)[]) {
@@ -303,6 +322,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
             });
         });
     }
+
     function getMergedCellDictionary(sheetFileName: string) {
         return new Promise<IMergedCellDictionary>((resolve, reject) => {
             zip.stream(`xl/worksheets/${sheetFileName}`, (err: any, stream: ReadStream) => {
@@ -347,6 +367,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
             });
         });
     }
+
     async function getSheetTransform(sheetFileName: string, withHeader?: boolean | number, ignoreEmpty?: boolean, fillMergedCells?: boolean, numberFormat?: numberFormatType) {
         let dict: IMergedCellDictionary | undefined;
         if (fillMergedCells) {
@@ -369,6 +390,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
             });
         });
     }
+
     await setupGenericData();
     for (currentSheetIndex = 0; currentSheetIndex < options.sheets.length; currentSheetIndex++) {
         const sheet = options.sheets[currentSheetIndex];
