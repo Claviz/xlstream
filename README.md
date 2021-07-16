@@ -8,7 +8,7 @@ Memory-efficiently turns XLSX file into a [transform stream](https://nodejs.org/
 
 * Stream is **pausable**.
 * Emits all **default events** (`data`, `end`, etc.)
-* Returns **header**, **raw**, **totalSheetSize**, **processedSheetSize** and **formatted** row data in just one `data` event.
+* Returns **header**, **raw** and **formatted** row data, as well as **totalSheetSize** and **processedSheetSize** (in bytes) in just one `data` event.
 * Maintains desirable behavior of **merged cells**.
 * Supports files created by **OpenXML**.
 * Supports **standard**, **Excel** and **custom number formats**. 
