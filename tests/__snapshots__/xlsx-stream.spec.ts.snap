@@ -14,6 +14,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1229,
     "raw": Object {
       "arr": Array [
         "hello",
@@ -24,6 +25,7 @@ Array [
         "B": "world",
       },
     },
+    "totalSheetSize": 1229,
   },
   Object {
     "formatted": Object {
@@ -31,10 +33,12 @@ Array [
       "obj": Object {},
     },
     "header": Array [],
+    "processedSheetSize": 1229,
     "raw": Object {
       "arr": Array [],
       "obj": Object {},
     },
+    "totalSheetSize": 1229,
   },
   Object {
     "formatted": Object {
@@ -42,10 +46,12 @@ Array [
       "obj": Object {},
     },
     "header": Array [],
+    "processedSheetSize": 1229,
     "raw": Object {
       "arr": Array [],
       "obj": Object {},
     },
+    "totalSheetSize": 1229,
   },
   Object {
     "formatted": Object {
@@ -53,10 +59,12 @@ Array [
       "obj": Object {},
     },
     "header": Array [],
+    "processedSheetSize": 1229,
     "raw": Object {
       "arr": Array [],
       "obj": Object {},
     },
+    "totalSheetSize": 1229,
   },
   Object {
     "formatted": Object {
@@ -70,6 +78,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1229,
     "raw": Object {
       "arr": Array [
         "hello",
@@ -80,6 +89,7 @@ Array [
         "B": "world",
       },
     },
+    "totalSheetSize": 1229,
   },
 ]
 `;
@@ -96,6 +106,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1162,
     "raw": Object {
       "arr": Array [
         0.333,
@@ -104,6 +115,7 @@ Array [
         "A": 0.333,
       },
     },
+    "totalSheetSize": 1162,
   },
   Object {
     "formatted": Object {
@@ -115,6 +127,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1025,
     "raw": Object {
       "arr": Array [
         0.333,
@@ -123,6 +136,7 @@ Array [
         "A": 0.333,
       },
     },
+    "totalSheetSize": 1025,
   },
   Object {
     "formatted": Object {
@@ -134,6 +148,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1041,
     "raw": Object {
       "arr": Array [
         0.333,
@@ -142,6 +157,7 @@ Array [
         "A": 0.333,
       },
     },
+    "totalSheetSize": 1041,
   },
 ]
 `;
@@ -158,6 +174,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 5210,
     "raw": Object {
       "arr": Array [
         "Email test",
@@ -166,6 +183,7 @@ Array [
         "A": "Email test",
       },
     },
+    "totalSheetSize": 5210,
   },
   Object {
     "formatted": Object {
@@ -178,6 +196,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 5210,
     "raw": Object {
       "arr": Array [
         undefined,
@@ -187,6 +206,7 @@ Array [
         "B": "test@test.com",
       },
     },
+    "totalSheetSize": 5210,
   },
 ]
 `;
@@ -205,6 +225,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 237,
     "raw": Object {
       "arr": Array [
         "a",
@@ -215,6 +236,7 @@ Array [
         "B": "b",
       },
     },
+    "totalSheetSize": 237,
   },
 ]
 `;
@@ -233,6 +255,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1470,
     "raw": Object {
       "arr": Array [
         "hello",
@@ -243,6 +266,7 @@ Array [
         "B": "world",
       },
     },
+    "totalSheetSize": 1470,
   },
   Object {
     "formatted": Object {
@@ -250,10 +274,12 @@ Array [
       "obj": Object {},
     },
     "header": Array [],
+    "processedSheetSize": 1470,
     "raw": Object {
       "arr": Array [],
       "obj": Object {},
     },
+    "totalSheetSize": 1470,
   },
   Object {
     "formatted": Object {
@@ -261,10 +287,12 @@ Array [
       "obj": Object {},
     },
     "header": Array [],
+    "processedSheetSize": 1470,
     "raw": Object {
       "arr": Array [],
       "obj": Object {},
     },
+    "totalSheetSize": 1470,
   },
   Object {
     "formatted": Object {
@@ -272,10 +300,12 @@ Array [
       "obj": Object {},
     },
     "header": Array [],
+    "processedSheetSize": 1470,
     "raw": Object {
       "arr": Array [],
       "obj": Object {},
     },
+    "totalSheetSize": 1470,
   },
   Object {
     "formatted": Object {
@@ -289,6 +319,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1470,
     "raw": Object {
       "arr": Array [
         "hello",
@@ -299,6 +330,7 @@ Array [
         "B": "world",
       },
     },
+    "totalSheetSize": 1470,
   },
 ]
 `;
@@ -315,6 +347,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1150,
     "raw": Object {
       "arr": Array [
         "test",
@@ -323,6 +356,7 @@ Array [
         "A": "test",
       },
     },
+    "totalSheetSize": 1150,
   },
 ]
 `;
@@ -345,6 +379,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [
         undefined,
@@ -359,6 +394,7 @@ Array [
         "E": "text1",
       },
     },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -372,6 +408,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [
         undefined,
@@ -382,6 +419,7 @@ Array [
         "C": 5.66666,
       },
     },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -395,6 +433,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [
         undefined,
@@ -405,6 +444,7 @@ Array [
         "C": 5.66666,
       },
     },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -418,6 +458,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [
         undefined,
@@ -428,6 +469,7 @@ Array [
         "C": 5.66666,
       },
     },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -435,10 +477,12 @@ Array [
       "obj": Object {},
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [],
       "obj": Object {},
     },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -446,10 +490,12 @@ Array [
       "obj": Object {},
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [],
       "obj": Object {},
     },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -468,6 +514,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [
         undefined,
@@ -483,6 +530,7 @@ Array [
         "F": "text3",
       },
     },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -501,6 +549,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [
         undefined,
@@ -516,6 +565,7 @@ Array [
         "F": "text3",
       },
     },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -523,21 +573,12 @@ Array [
       "obj": Object {},
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [],
       "obj": Object {},
     },
-  },
-  Object {
-    "formatted": Object {
-      "arr": Array [],
-      "obj": Object {},
-    },
-    "header": Array [],
-    "raw": Object {
-      "arr": Array [],
-      "obj": Object {},
-    },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -545,10 +586,12 @@ Array [
       "obj": Object {},
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [],
       "obj": Object {},
     },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -556,10 +599,25 @@ Array [
       "obj": Object {},
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [],
       "obj": Object {},
     },
+    "totalSheetSize": 1556,
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+    "header": Array [],
+    "processedSheetSize": 1556,
+    "raw": Object {
+      "arr": Array [],
+      "obj": Object {},
+    },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -580,6 +638,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [
         undefined,
@@ -597,6 +656,7 @@ Array [
         "I": "text4",
       },
     },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -617,6 +677,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [
         undefined,
@@ -634,6 +695,7 @@ Array [
         "I": "text4",
       },
     },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -654,6 +716,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [
         undefined,
@@ -671,6 +734,7 @@ Array [
         "I": "text4",
       },
     },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -691,6 +755,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [
         undefined,
@@ -708,6 +773,7 @@ Array [
         "I": "text4",
       },
     },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -728,6 +794,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [
         undefined,
@@ -745,6 +812,7 @@ Array [
         "I": "text4",
       },
     },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -765,6 +833,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [
         undefined,
@@ -782,6 +851,7 @@ Array [
         "I": "text4",
       },
     },
+    "totalSheetSize": 1556,
   },
   Object {
     "formatted": Object {
@@ -802,6 +872,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1556,
     "raw": Object {
       "arr": Array [
         undefined,
@@ -819,6 +890,7 @@ Array [
         "I": "text4",
       },
     },
+    "totalSheetSize": 1556,
   },
 ]
 `;
@@ -846,6 +918,7 @@ Array [
       "[C] merged header #2",
       "[D] merged header #2",
     ],
+    "processedSheetSize": 1457,
     "raw": Object {
       "arr": Array [
         1,
@@ -860,6 +933,7 @@ Array [
         "[D] merged header #2": 4,
       },
     },
+    "totalSheetSize": 1457,
   },
   Object {
     "formatted": Object {
@@ -882,6 +956,7 @@ Array [
       "[C] merged header #2",
       "[D] merged header #2",
     ],
+    "processedSheetSize": 1457,
     "raw": Object {
       "arr": Array [
         5,
@@ -896,6 +971,7 @@ Array [
         "[D] merged header #2": 8,
       },
     },
+    "totalSheetSize": 1457,
   },
   Object {
     "formatted": Object {
@@ -916,6 +992,7 @@ Array [
       "[C] merged header #2",
       "[D] merged header #2",
     ],
+    "processedSheetSize": 1457,
     "raw": Object {
       "arr": Array [
         undefined,
@@ -928,6 +1005,7 @@ Array [
         "[D] merged header #2": "merged",
       },
     },
+    "totalSheetSize": 1457,
   },
   Object {
     "formatted": Object {
@@ -948,6 +1026,7 @@ Array [
       "[C] merged header #2",
       "[D] merged header #2",
     ],
+    "processedSheetSize": 1457,
     "raw": Object {
       "arr": Array [
         undefined,
@@ -960,6 +1039,7 @@ Array [
         "[D] merged header #2": "merged",
       },
     },
+    "totalSheetSize": 1457,
   },
 ]
 `;
@@ -976,6 +1056,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1057,
     "raw": Object {
       "arr": Array [
         "Sheet5",
@@ -984,6 +1065,7 @@ Array [
         "A": "Sheet5",
       },
     },
+    "totalSheetSize": 1057,
   },
 ]
 `;
@@ -1000,6 +1082,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1073,
     "raw": Object {
       "arr": Array [
         "Sheet1",
@@ -1008,6 +1091,7 @@ Array [
         "A": "Sheet1",
       },
     },
+    "totalSheetSize": 1073,
   },
 ]
 `;
@@ -1026,6 +1110,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1470,
     "raw": Object {
       "arr": Array [
         "hello",
@@ -1036,6 +1121,7 @@ Array [
         "B": "world",
       },
     },
+    "totalSheetSize": 1470,
   },
   Object {
     "formatted": Object {
@@ -1049,6 +1135,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1470,
     "raw": Object {
       "arr": Array [
         "hello",
@@ -1059,6 +1146,7 @@ Array [
         "B": "world",
       },
     },
+    "totalSheetSize": 1470,
   },
 ]
 `;
@@ -1075,6 +1163,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1007,
     "raw": Object {
       "arr": Array [
         "Sheet3",
@@ -1083,6 +1172,7 @@ Array [
         "A": "Sheet3",
       },
     },
+    "totalSheetSize": 1007,
   },
   Object {
     "formatted": Object {
@@ -1094,6 +1184,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1073,
     "raw": Object {
       "arr": Array [
         "Sheet1",
@@ -1102,6 +1193,7 @@ Array [
         "A": "Sheet1",
       },
     },
+    "totalSheetSize": 1073,
   },
 ]
 `;
@@ -1120,6 +1212,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1110,
     "raw": Object {
       "arr": Array [
         "hello",
@@ -1130,6 +1223,7 @@ Array [
         "B": 123.123,
       },
     },
+    "totalSheetSize": 1110,
   },
 ]
 `;
@@ -1153,6 +1247,7 @@ Array [
       "column2",
       "column3",
     ],
+    "processedSheetSize": 1246,
     "raw": Object {
       "arr": Array [
         "hello",
@@ -1164,6 +1259,7 @@ Array [
         "column3": 123.123,
       },
     },
+    "totalSheetSize": 1246,
   },
 ]
 `;
@@ -1179,10 +1275,12 @@ Array [
       "header1",
       "header2",
     ],
+    "processedSheetSize": 1542,
     "raw": Object {
       "arr": Array [],
       "obj": Object {},
     },
+    "totalSheetSize": 1542,
   },
   Object {
     "formatted": Object {
@@ -1199,6 +1297,7 @@ Array [
       "header1",
       "header2",
     ],
+    "processedSheetSize": 1542,
     "raw": Object {
       "arr": Array [
         "void1",
@@ -1209,6 +1308,7 @@ Array [
         "B": "void2",
       },
     },
+    "totalSheetSize": 1542,
   },
   Object {
     "formatted": Object {
@@ -1225,6 +1325,7 @@ Array [
       "header1",
       "header2",
     ],
+    "processedSheetSize": 1542,
     "raw": Object {
       "arr": Array [
         "void3",
@@ -1235,6 +1336,7 @@ Array [
         "B": "void4",
       },
     },
+    "totalSheetSize": 1542,
   },
   Object {
     "formatted": Object {
@@ -1245,10 +1347,12 @@ Array [
       "header1",
       "header2",
     ],
+    "processedSheetSize": 1542,
     "raw": Object {
       "arr": Array [],
       "obj": Object {},
     },
+    "totalSheetSize": 1542,
   },
   Object {
     "formatted": Object {
@@ -1259,10 +1363,12 @@ Array [
       "header1",
       "header2",
     ],
+    "processedSheetSize": 1542,
     "raw": Object {
       "arr": Array [],
       "obj": Object {},
     },
+    "totalSheetSize": 1542,
   },
   Object {
     "formatted": Object {
@@ -1279,6 +1385,7 @@ Array [
       "header1",
       "header2",
     ],
+    "processedSheetSize": 1542,
     "raw": Object {
       "arr": Array [
         "a",
@@ -1289,6 +1396,7 @@ Array [
         "header2": "b",
       },
     },
+    "totalSheetSize": 1542,
   },
   Object {
     "formatted": Object {
@@ -1305,6 +1413,7 @@ Array [
       "header1",
       "header2",
     ],
+    "processedSheetSize": 1542,
     "raw": Object {
       "arr": Array [
         "c",
@@ -1315,6 +1424,7 @@ Array [
         "header2": "d",
       },
     },
+    "totalSheetSize": 1542,
   },
   Object {
     "formatted": Object {
@@ -1331,6 +1441,7 @@ Array [
       "header1",
       "header2",
     ],
+    "processedSheetSize": 1542,
     "raw": Object {
       "arr": Array [
         "e",
@@ -1341,6 +1452,7 @@ Array [
         "header2": "f",
       },
     },
+    "totalSheetSize": 1542,
   },
   Object {
     "formatted": Object {
@@ -1357,6 +1469,7 @@ Array [
       "header1",
       "header2",
     ],
+    "processedSheetSize": 1542,
     "raw": Object {
       "arr": Array [
         "g",
@@ -1367,6 +1480,7 @@ Array [
         "header2": "h",
       },
     },
+    "totalSheetSize": 1542,
   },
 ]
 `;
@@ -1394,6 +1508,7 @@ Array [
       "[C] header2",
       "header3",
     ],
+    "processedSheetSize": 1367,
     "raw": Object {
       "arr": Array [
         1,
@@ -1408,6 +1523,7 @@ Array [
         "header3": 4,
       },
     },
+    "totalSheetSize": 1367,
   },
   Object {
     "formatted": Object {
@@ -1430,6 +1546,7 @@ Array [
       "[C] header2",
       "header3",
     ],
+    "processedSheetSize": 1367,
     "raw": Object {
       "arr": Array [
         5,
@@ -1444,6 +1561,7 @@ Array [
         "header3": 8,
       },
     },
+    "totalSheetSize": 1367,
   },
 ]
 `;
@@ -1471,6 +1589,7 @@ Array [
       "[C]",
       "columnD",
     ],
+    "processedSheetSize": 1597,
     "raw": Object {
       "arr": Array [
         1,
@@ -1485,6 +1604,7 @@ Array [
         "columnD": 4,
       },
     },
+    "totalSheetSize": 1597,
   },
   Object {
     "formatted": Object {
@@ -1509,6 +1629,7 @@ Array [
       "columnD",
       "[E]",
     ],
+    "processedSheetSize": 1597,
     "raw": Object {
       "arr": Array [
         1,
@@ -1524,6 +1645,7 @@ Array [
         "columnD": 4,
       },
     },
+    "totalSheetSize": 1597,
   },
   Object {
     "formatted": Object {
@@ -1552,6 +1674,7 @@ Array [
       "[E]",
       "[F]",
     ],
+    "processedSheetSize": 1597,
     "raw": Object {
       "arr": Array [
         1,
@@ -1570,6 +1693,7 @@ Array [
         "columnD": 4,
       },
     },
+    "totalSheetSize": 1597,
   },
 ]
 `;
@@ -1590,6 +1714,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1102,
     "raw": Object {
       "arr": Array [
         "0000",
@@ -1600,6 +1725,7 @@ Array [
         "B": 0,
       },
     },
+    "totalSheetSize": 1102,
   },
   Object {
     "formatted": Object {
@@ -1613,6 +1739,7 @@ Array [
       },
     },
     "header": Array [],
+    "processedSheetSize": 1102,
     "raw": Object {
       "arr": Array [
         "0001",
@@ -1623,6 +1750,7 @@ Array [
         "B": 1,
       },
     },
+    "totalSheetSize": 1102,
   },
 ]
 `;

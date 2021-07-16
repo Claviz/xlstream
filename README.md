@@ -8,7 +8,7 @@ Memory-efficiently turns XLSX file into a [transform stream](https://nodejs.org/
 
 * Stream is **pausable**.
 * Emits all **default events** (`data`, `end`, etc.)
-* Returns **header**, **raw** and **formatted** row data in just one `data` event.
+* Returns **header**, **raw**, **totalSheetSize**, **processedSheetSize** and **formatted** row data in just one `data` event.
 * Maintains desirable behavior of **merged cells**.
 * Supports files created by **OpenXML**.
 * Supports **standard**, **Excel** and **custom number formats**. 
@@ -51,7 +51,9 @@ const { getXlsxStream } = require('xlstream');
         "obj": { "A": "hello", "B": 123 }, 
         "arr": [ "hello", 123 ] 
     },
-    "header": []
+    "header": [],
+    "totalSheetSize": 1110,
+    "processedSheetSize": 1110
 }
 ```
 

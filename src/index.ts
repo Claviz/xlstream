@@ -9,6 +9,8 @@ import { IMergedCellDictionary, IWorksheet, IWorksheetOptions, IXlsxStreamOption
 const StreamZip = require('node-stream-zip');
 const saxStream = require('sax-stream');
 const rename = require('deep-rename-keys');
+let currentSheetProcessedSize = 0;
+let currentSheetSize = 0;
 
 function lettersToNumber(letters: string) {
     return letters.split('').reduce((r, a) => r * 26 + parseInt(a, 36) - 9, 0);
@@ -99,6 +101,8 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
                             arr: []
                         },
                         header: getFilledHeader(arr, header),
+                        processedSheetSize: currentSheetProcessedSize,
+                        totalSheetSize: currentSheetSize,
                     })
                 }
             }
@@ -163,6 +167,8 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
                         arr: formattedArr,
                     },
                     header: getFilledHeader(arr, header),
+                    processedSheetSize: currentSheetProcessedSize,
+                    totalSheetSize: currentSheetSize,
                 });
             }
         },
@@ -185,6 +191,8 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
                             arr: formattedArr,
                         },
                         header: getFilledHeader(arr, header),
+                        processedSheetSize: currentSheetProcessedSize,
+                        totalSheetSize: currentSheetSize,
                     });
                 }
             }
@@ -218,6 +226,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
         file: options.filePath,
         storeEntries: true
     });
+    let zipEntries: any = {};
     let currentSheetIndex = 0;
 
     function setupGenericData() {
@@ -315,6 +324,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
             }
 
             zip.on('ready', () => {
+                zipEntries = zip.entries();
                 getRels();
             });
             zip.on('error', (err: any) => {
@@ -374,8 +384,17 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
             dict = await getMergedCellDictionary(sheetFileName);
         }
         return new Promise<Transform>((resolve, reject) => {
-            zip.stream(`xl/worksheets/${sheetFileName}`, (err: any, stream: ReadStream) => {
+            const sheetFullFileName = `xl/worksheets/${sheetFileName}`;
+            zip.stream(sheetFullFileName, (err: any, stream: ReadStream) => {
+                currentSheetProcessedSize = 0;
+                currentSheetSize = zipEntries[sheetFullFileName].size;
                 const readStream = stream
+                    .pipe(new Transform({
+                        transform(chunk, encoding, done) {
+                            currentSheetProcessedSize += chunk.length;
+                            done(undefined, chunk);
+                        }
+                    }))
                     .pipe(saxStream({
                         strict: true,
                         tag: ['x:row', 'row']
