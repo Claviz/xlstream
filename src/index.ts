@@ -210,6 +210,7 @@ export async function getXlsxStream(options: IXlsxStreamOptions): Promise<Transf
             ignoreEmpty: options.ignoreEmpty,
             fillMergedCells: options.fillMergedCells,
             numberFormat: options.numberFormat,
+            encoding: options.encoding,
         }]
     });
     const stream = await generator.next();
@@ -240,6 +241,9 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
                 }
                 zip.stream('xl/sharedStrings.xml', (err: any, stream: ReadStream) => {
                     if (stream) {
+                        if(options.encoding) {
+                            stream.setEncoding(options.encoding);
+                        }
                         stream.pipe(saxStream({
                             strict: true,
                             tag: ['x:si', 'si']
@@ -269,6 +273,9 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
             function processStyles() {
                 zip.stream(`xl/styles.xml`, (err: any, stream: ReadStream) => {
                     if (stream) {
+                        if(options.encoding) {
+                            stream.setEncoding(options.encoding);
+                        }
                         stream.pipe(saxStream({
                             strict: true,
                             tag: ['x:cellXfs', 'x:numFmts', 'cellXfs', 'numFmts']
@@ -296,6 +303,9 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
 
             function processWorkbook() {
                 zip.stream('xl/workbook.xml', (err: any, stream: ReadStream) => {
+                    if(options.encoding) {
+                        stream.setEncoding(options.encoding);
+                    }
                     stream.pipe(saxStream({
                         strict: true,
                         tag: ['x:sheet', 'sheet']
@@ -311,6 +321,9 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
 
             function getRels() {
                 zip.stream('xl/_rels/workbook.xml.rels', (err: any, stream: ReadStream) => {
+                    if(options.encoding) {
+                        stream.setEncoding(options.encoding);
+                    }
                     stream.pipe(saxStream({
                         strict: true,
                         tag: ['x:Relationship', 'Relationship']
@@ -336,6 +349,9 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
     function getMergedCellDictionary(sheetFileName: string) {
         return new Promise<IMergedCellDictionary>((resolve, reject) => {
             zip.stream(`xl/worksheets/${sheetFileName}`, (err: any, stream: ReadStream) => {
+                if(options.encoding) {
+                    stream.setEncoding(options.encoding);
+                }
                 const dict: IMergedCellDictionary = {};
                 const readStream = stream
                     .pipe(saxStream({
@@ -386,6 +402,9 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
         return new Promise<Transform>((resolve, reject) => {
             const sheetFullFileName = `xl/worksheets/${sheetFileName}`;
             zip.stream(sheetFullFileName, (err: any, stream: ReadStream) => {
+                if(options.encoding) {
+                    stream.setEncoding(options.encoding);
+                }
                 currentSheetProcessedSize = 0;
                 currentSheetSize = zipEntries[sheetFullFileName].size;
                 const readStream = stream
@@ -431,6 +450,9 @@ export function getWorksheets(options: IWorksheetOptions) {
     return new Promise<IWorksheet[]>((resolve, reject) => {
         function processWorkbook() {
             zip.stream('xl/workbook.xml', (err: any, stream: ReadStream) => {
+                if(options.encoding) {
+                    stream.setEncoding(options.encoding);
+                }
                 if (err) {
                     reject(err);
                 }

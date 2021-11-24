@@ -7,10 +7,12 @@ export interface IXlsxStreamOptions {
     ignoreEmpty?: boolean;
     fillMergedCells?: boolean;
     numberFormat?: numberFormatType;
+    encoding?: string;
 }
 
 export interface IXlsxStreamsOptions {
     filePath: string;
+    encoding?: string;
     sheets: {
         id: string | number;
         withHeader?: boolean | number;
