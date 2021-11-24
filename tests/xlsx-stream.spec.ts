@@ -341,3 +341,17 @@ it('reads XLSX file with header values being undefined', async (done) => {
         done();
     })
 });
+
+it('added encoding option support', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/added-encoding-option-support.xlsx',
+        sheet: 0,
+        encoding: 'utf8'
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});
