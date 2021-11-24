@@ -204,13 +204,13 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
 export async function getXlsxStream(options: IXlsxStreamOptions): Promise<Transform> {
     const generator = getXlsxStreams({
         filePath: options.filePath,
+        encoding: options.encoding,
         sheets: [{
             id: options.sheet,
             withHeader: options.withHeader,
             ignoreEmpty: options.ignoreEmpty,
             fillMergedCells: options.fillMergedCells,
             numberFormat: options.numberFormat,
-            encoding: options.encoding,
         }]
     });
     const stream = await generator.next();

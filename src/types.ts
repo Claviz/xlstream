@@ -24,6 +24,7 @@ export interface IXlsxStreamsOptions {
 
 export interface IWorksheetOptions {
     filePath: string;
+    encoding?: string;
 }
 
 export interface IWorksheet {
