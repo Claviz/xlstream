@@ -368,3 +368,16 @@ it('reads XLSX file incorrectly without encoding set', async (done) => {
         done();
     })
 });
+
+it('correctly handles custom format', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/custom-format.xlsx',
+        sheet: 0,
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});

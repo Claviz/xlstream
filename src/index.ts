@@ -1,3 +1,4 @@
+const numfmt = require('numfmt');
 import fclone from 'fclone';
 import path from 'path';
 import ssf from 'ssf';
@@ -137,7 +138,11 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
                         } else if (numberFormat && typeof numberFormat === 'object') {
                             numFormat = numberFormat[numFormat];
                         }
-                        value = ssf.format(numFormat, value);
+                        if (typeof numFormat === 'string') {
+                            value = numfmt.format(numFormat, value);
+                        } else {
+                            value = ssf.format(numFormat, value);
+                        }
                         value = formatNumericValue(type, value);
                     }
                     if (dict?.[lastReceivedRow]?.[column]) {
@@ -241,7 +246,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
                 }
                 zip.stream('xl/sharedStrings.xml', (err: any, stream: ReadStream) => {
                     if (stream) {
-                        if(options.encoding) {
+                        if (options.encoding) {
                             stream.setEncoding(options.encoding);
                         }
                         stream.pipe(saxStream({
@@ -273,7 +278,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
             function processStyles() {
                 zip.stream(`xl/styles.xml`, (err: any, stream: ReadStream) => {
                     if (stream) {
-                        if(options.encoding) {
+                        if (options.encoding) {
                             stream.setEncoding(options.encoding);
                         }
                         stream.pipe(saxStream({
@@ -303,7 +308,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
 
             function processWorkbook() {
                 zip.stream('xl/workbook.xml', (err: any, stream: ReadStream) => {
-                    if(options.encoding) {
+                    if (options.encoding) {
                         stream.setEncoding(options.encoding);
                     }
                     stream.pipe(saxStream({
@@ -321,7 +326,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
 
             function getRels() {
                 zip.stream('xl/_rels/workbook.xml.rels', (err: any, stream: ReadStream) => {
-                    if(options.encoding) {
+                    if (options.encoding) {
                         stream.setEncoding(options.encoding);
                     }
                     stream.pipe(saxStream({
@@ -349,7 +354,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
     function getMergedCellDictionary(sheetFileName: string) {
         return new Promise<IMergedCellDictionary>((resolve, reject) => {
             zip.stream(`xl/worksheets/${sheetFileName}`, (err: any, stream: ReadStream) => {
-                if(options.encoding) {
+                if (options.encoding) {
                     stream.setEncoding(options.encoding);
                 }
                 const dict: IMergedCellDictionary = {};
@@ -402,7 +407,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
         return new Promise<Transform>((resolve, reject) => {
             const sheetFullFileName = `xl/worksheets/${sheetFileName}`;
             zip.stream(sheetFullFileName, (err: any, stream: ReadStream) => {
-                if(options.encoding) {
+                if (options.encoding) {
                     stream.setEncoding(options.encoding);
                 }
                 currentSheetProcessedSize = 0;
@@ -450,7 +455,7 @@ export function getWorksheets(options: IWorksheetOptions) {
     return new Promise<IWorksheet[]>((resolve, reject) => {
         function processWorkbook() {
             zip.stream('xl/workbook.xml', (err: any, stream: ReadStream) => {
-                if(options.encoding) {
+                if (options.encoding) {
                     stream.setEncoding(options.encoding);
                 }
                 if (err) {

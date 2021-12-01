@@ -141,10 +141,10 @@ Array [
   Object {
     "formatted": Object {
       "arr": Array [
-        "59 31",
+        "59 31",
       ],
       "obj": Object {
-        "A": "59 31",
+        "A": "59 31",
       },
     },
     "header": Array [],
@@ -158,6 +158,53 @@ Array [
       },
     },
     "totalSheetSize": 1041,
+  },
+]
+`;
+
+exports[`correctly handles custom format 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "custom format",
+      ],
+      "obj": Object {
+        "A": "custom format",
+      },
+    },
+    "header": Array [],
+    "processedSheetSize": 1190,
+    "raw": Object {
+      "arr": Array [
+        "custom format",
+      ],
+      "obj": Object {
+        "A": "custom format",
+      },
+    },
+    "totalSheetSize": 1190,
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "(72.1)%",
+      ],
+      "obj": Object {
+        "A": "(72.1)%",
+      },
+    },
+    "header": Array [],
+    "processedSheetSize": 1190,
+    "raw": Object {
+      "arr": Array [
+        -0.720649202194373,
+      ],
+      "obj": Object {
+        "A": -0.720649202194373,
+      },
+    },
+    "totalSheetSize": 1190,
   },
 ]
 `;
