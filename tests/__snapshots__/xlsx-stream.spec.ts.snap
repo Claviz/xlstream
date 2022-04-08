@@ -1345,8 +1345,9 @@ Array [
       "column1",
       "column2",
       "column3",
+      "column4",
     ],
-    "processedSheetSize": 1246,
+    "processedSheetSize": 2343,
     "raw": Object {
       "arr": Array [
         "hello",
@@ -1358,7 +1359,41 @@ Array [
         "column3": 123.123,
       },
     },
-    "totalSheetSize": 1246,
+    "totalSheetSize": 2343,
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        undefined,
+        "world",
+        undefined,
+        456,
+      ],
+      "obj": Object {
+        "column2": "world",
+        "column4": 456,
+      },
+    },
+    "header": Array [
+      "column1",
+      "column2",
+      "column3",
+      "column4",
+    ],
+    "processedSheetSize": 2343,
+    "raw": Object {
+      "arr": Array [
+        undefined,
+        "world",
+        undefined,
+        456,
+      ],
+      "obj": Object {
+        "column2": "world",
+        "column4": 456,
+      },
+    },
+    "totalSheetSize": 2343,
   },
 ]
 `;
