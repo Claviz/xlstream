@@ -48,7 +48,7 @@ function getFilledHeader(arr: any[], header: any[]) {
         return header;
     }
     const filledHeader = [];
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < Math.max(arr.length, header.length); i++) {
         filledHeader.push(
             header[i] ? header[i] : `[${numbersToLetter(i + 1)}]`
         );
