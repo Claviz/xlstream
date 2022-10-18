@@ -286,14 +286,19 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
                             tag: ['x:cellXfs', 'x:numFmts', 'cellXfs', 'numFmts']
                         })).on('data', (x: any) => {
                             if ((x.tag === 'numFmts' || x.tag === 'x:numFmts') && x.record.children) {
-                                const children = x.record.children.numFmt.length ? x.record.children.numFmt : [x.record.children.numFmt];
-                                for (let i = 0; i < children.length; i++) {
+                                let numFmtField = x.record.children['x:numFmt'] ? 'x:numFmt' : 'numFmt';
+                                var children = x.record.children[numFmtField].length ? x.record.children[numFmtField] : [x.record.children[numFmtField]];
+                                for (var i = 0; i < children.length; i++) {
                                     numberFormats[Number(children[i].attribs.numFmtId)] = children[i].attribs.formatCode;
                                 }
-                            } else if ((x.tag === 'cellXfs' || x.tag === 'x:cellXfs') && x.record.children) {
-                                for (let i = 0; i < x.record.children.xf.length; i++) {
-                                    const ch = x.record.children.xf[i];
-                                    formats[i] = Number(ch.attribs.numFmtId);
+                            }
+                            else if ((x.tag === 'cellXfs' || x.tag === 'x:cellXfs') && x.record.children) {
+                                const xfField = x.record.children['x:xf'] ? 'x:xf' : 'xf';
+                                for (var i = 0; i < x.record.children[xfField].length; i++) {
+                                    var ch = x.record.children[xfField][i];
+                                    if (ch.attribs?.numFmtId) {
+                                        formats[i] = ch.attribs?.numFmtId ? Number(ch.attribs?.numFmtId) : '';
+                                    }
                                 }
                             }
                         });

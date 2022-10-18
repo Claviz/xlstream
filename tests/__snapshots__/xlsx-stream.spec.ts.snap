@@ -1832,6 +1832,69 @@ Array [
 ]
 `;
 
+exports[`reads XLSX file with styles.xml tags prefixed with \`x:\` correctly 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "Year",
+        "Month",
+        "Day",
+      ],
+      "obj": Object {
+        "A": "Year",
+        "B": "Month",
+        "C": "Day",
+      },
+    },
+    "header": Array [],
+    "processedSheetSize": 1246,
+    "raw": Object {
+      "arr": Array [
+        "Year",
+        "Month",
+        "Day",
+      ],
+      "obj": Object {
+        "A": "Year",
+        "B": "Month",
+        "C": "Day",
+      },
+    },
+    "totalSheetSize": 1246,
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        0,
+        "January",
+        0,
+      ],
+      "obj": Object {
+        "A": 0,
+        "B": "January",
+        "C": 0,
+      },
+    },
+    "header": Array [],
+    "processedSheetSize": 1246,
+    "raw": Object {
+      "arr": Array [
+        2022,
+        "January",
+        1,
+      ],
+      "obj": Object {
+        "A": 2022,
+        "B": "January",
+        "C": 1,
+      },
+    },
+    "totalSheetSize": 1246,
+  },
+]
+`;
+
 exports[`reads empty XLSX file correctly 1`] = `Array []`;
 
 exports[`reads number values with leading zeroes correctly 1`] = `

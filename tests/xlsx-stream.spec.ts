@@ -381,3 +381,16 @@ it('correctly handles custom format', async (done) => {
         done();
     })
 });
+
+it('reads XLSX file with styles.xml tags prefixed with `x:` correctly', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/prefixed-styles-xml-tags.xlsx',
+        sheet: 0,
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});
