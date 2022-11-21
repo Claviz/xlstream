@@ -118,7 +118,7 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
                     if (type === 'inlineStr') {
                         value = ch.children.is.children.t.value;
                     } else {
-                        value = ch.children.v.value;
+                        value = ch.children && ch.children.v && ch.children.v.value;
                         if (type === 's') {
                             value = strings[value];
                         }
