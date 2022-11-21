@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Claviz/xlstream.git"
+    "url": "git+https://github.com/bashovski/xlstream.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Claviz/xlstream/issues"
+    "url": "https://github.com/bashovski/xlstream/issues"
   },
-  "homepage": "https://github.com/Claviz/xlstream#readme",
+  "homepage": "https://github.com/bashovski/xlstream#readme",
   "devDependencies": {
     "@types/jest": "^24.0.0",
     "@types/node": "^10.12.24",
