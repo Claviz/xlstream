@@ -1,5 +1,5 @@
 {
-  "name": "xlstream",
+  "name": "xlstream-polymer",
   "version": "2.5.3",
   "description": "Turns XLSX into a readable stream.",
   "main": "lib/index",
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/bashovski/xlstream.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "bashovski",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bashovski/xlstream/issues"
