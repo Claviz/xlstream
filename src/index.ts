@@ -4,6 +4,8 @@ import path from 'path';
 import ssf from 'ssf';
 import { Transform } from 'stream';
 import { ReadStream } from 'tty';
+import { inspect } from 'util';
+
 
 import { IMergedCellDictionary, IWorksheet, IWorksheetOptions, IXlsxStreamOptions, IXlsxStreamsOptions, numberFormatType } from './types';
 
@@ -244,75 +246,83 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
                         formats[i] = format;
                     }
                 }
-                zip.stream('xl/sharedStrings.xml', (err: any, stream: ReadStream) => {
-                    if (stream) {
-                        if (options.encoding) {
-                            stream.setEncoding(options.encoding);
-                        }
-                        stream.pipe(saxStream({
-                            strict: true,
-                            tag: ['x:si', 'si']
-                        })).on('data', (x: any) => {
-                            const record = x.record;
-                            if (record.children.t) {
-                                strings.push(record.children.t.value);
-                            } else if (!record.children.r.length) {
-                                strings.push(record.children.r.children.t.value);
-                            } else {
-                                let str = '';
-                                for (let i = 0; i < record.children.r.length; i++) {
-                                    str += record.children.r[i].children.t.value;
-                                }
-                                strings.push(str);
-                            }
-                        });
-                        stream.on('end', () => {
-                            resolve();
-                        });
-                    } else {
+                zip.stream('xl/sharedStrings.xml', (err: any, stream?: ReadStream) => {
+                    if (!stream) {
+                        console.warn('xlstream failed to find stream: ' + inspect(err, undefined, 4));
                         resolve();
+                        return;
                     }
+                    
+                    if (options.encoding) {
+                        stream.setEncoding(options.encoding);
+                    }
+                    stream.pipe(saxStream({
+                        strict: true,
+                        tag: ['x:si', 'si']
+                    })).on('data', (x: any) => {
+                        const record = x.record;
+                        if (record.children.t) {
+                            strings.push(record.children.t.value);
+                        } else if (!record.children.r.length) {
+                            strings.push(record.children.r.children.t.value);
+                        } else {
+                            let str = '';
+                            for (let i = 0; i < record.children.r.length; i++) {
+                                str += record.children.r[i].children.t.value;
+                            }
+                            strings.push(str);
+                        }
+                    });
+                    stream.on('end', () => {
+                        resolve();
+                    });
                 });
             }
 
             function processStyles() {
-                zip.stream(`xl/styles.xml`, (err: any, stream: ReadStream) => {
-                    if (stream) {
-                        if (options.encoding) {
-                            stream.setEncoding(options.encoding);
-                        }
-                        stream.pipe(saxStream({
-                            strict: true,
-                            tag: ['x:cellXfs', 'x:numFmts', 'cellXfs', 'numFmts']
-                        })).on('data', (x: any) => {
-                            if ((x.tag === 'numFmts' || x.tag === 'x:numFmts') && x.record.children) {
-                                let numFmtField = x.record.children['x:numFmt'] ? 'x:numFmt' : 'numFmt';
-                                var children = x.record.children[numFmtField].length ? x.record.children[numFmtField] : [x.record.children[numFmtField]];
-                                for (var i = 0; i < children.length; i++) {
-                                    numberFormats[Number(children[i].attribs.numFmtId)] = children[i].attribs.formatCode;
-                                }
-                            }
-                            else if ((x.tag === 'cellXfs' || x.tag === 'x:cellXfs') && x.record.children) {
-                                const xfField = x.record.children['x:xf'] ? 'x:xf' : 'xf';
-                                for (var i = 0; i < x.record.children[xfField].length; i++) {
-                                    var ch = x.record.children[xfField][i];
-                                    if (ch.attribs?.numFmtId) {
-                                        formats[i] = ch.attribs?.numFmtId ? Number(ch.attribs?.numFmtId) : '';
-                                    }
-                                }
-                            }
-                        });
-                        stream.on('end', () => {
-                            processSharedStrings(numberFormats, formats);
-                        });
-                    } else {
+                zip.stream(`xl/styles.xml`, (err: any, stream?: ReadStream) => {
+                    if (!stream) {
+                        console.warn('xlstream failed to find stream: ' + inspect(err, undefined, 4));
                         processSharedStrings(numberFormats, formats);
+                        return;
                     }
+                    
+                    if (options.encoding) {
+                        stream.setEncoding(options.encoding);
+                    }
+                    stream.pipe(saxStream({
+                        strict: true,
+                        tag: ['x:cellXfs', 'x:numFmts', 'cellXfs', 'numFmts']
+                    })).on('data', (x: any) => {
+                        if ((x.tag === 'numFmts' || x.tag === 'x:numFmts') && x.record.children) {
+                            let numFmtField = x.record.children['x:numFmt'] ? 'x:numFmt' : 'numFmt';
+                            var children = x.record.children[numFmtField].length ? x.record.children[numFmtField] : [x.record.children[numFmtField]];
+                            for (var i = 0; i < children.length; i++) {
+                                numberFormats[Number(children[i].attribs.numFmtId)] = children[i].attribs.formatCode;
+                            }
+                        }
+                        else if ((x.tag === 'cellXfs' || x.tag === 'x:cellXfs') && x.record.children) {
+                            const xfField = x.record.children['x:xf'] ? 'x:xf' : 'xf';
+                            for (var i = 0; i < x.record.children[xfField].length; i++) {
+                                var ch = x.record.children[xfField][i];
+                                if (ch.attribs?.numFmtId) {
+                                    formats[i] = ch.attribs?.numFmtId ? Number(ch.attribs?.numFmtId) : '';
+                                }
+                            }
+                        }
+                    });
+                    stream.on('end', () => {
+                        processSharedStrings(numberFormats, formats);
+                    });
                 });
             }
 
             function processWorkbook() {
-                zip.stream('xl/workbook.xml', (err: any, stream: ReadStream) => {
+                zip.stream('xl/workbook.xml', (err: any, stream?: ReadStream) => {
+                    if (!stream || err) {
+                        reject('Received error from node-stream-zip: ' + inspect(err, undefined, 4));
+                        return;
+                    }
                     if (options.encoding) {
                         stream.setEncoding(options.encoding);
                     }
@@ -330,7 +340,11 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
             }
 
             function getRels() {
-                zip.stream('xl/_rels/workbook.xml.rels', (err: any, stream: ReadStream) => {
+                zip.stream('xl/_rels/workbook.xml.rels', (err: any, stream?: ReadStream) => {
+                    if (!stream || err) {
+                        reject('Received error from node-stream-zip: ' + inspect(err, undefined, 4));
+                        return;
+                    }
                     if (options.encoding) {
                         stream.setEncoding(options.encoding);
                     }
@@ -358,7 +372,11 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
 
     function getMergedCellDictionary(sheetFileName: string) {
         return new Promise<IMergedCellDictionary>((resolve, reject) => {
-            zip.stream(`xl/worksheets/${sheetFileName}`, (err: any, stream: ReadStream) => {
+            zip.stream(`xl/worksheets/${sheetFileName}`, (err: any, stream?: ReadStream) => {
+                if (!stream || err) {
+                    reject('Received error from node-stream-zip: ' + inspect(err, undefined, 4));
+                    return;
+                }
                 if (options.encoding) {
                     stream.setEncoding(options.encoding);
                 }
@@ -411,7 +429,11 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
         }
         return new Promise<Transform>((resolve, reject) => {
             const sheetFullFileName = `xl/worksheets/${sheetFileName}`;
-            zip.stream(sheetFullFileName, (err: any, stream: ReadStream) => {
+            zip.stream(sheetFullFileName, (err: any, stream?: ReadStream) => {
+                if (!stream || err) {
+                    reject('Received error from node-stream-zip: ' + inspect(err, undefined, 4));
+                    return;
+                }
                 if (options.encoding) {
                     stream.setEncoding(options.encoding);
                 }
@@ -459,12 +481,13 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
 export function getWorksheets(options: IWorksheetOptions) {
     return new Promise<IWorksheet[]>((resolve, reject) => {
         function processWorkbook() {
-            zip.stream('xl/workbook.xml', (err: any, stream: ReadStream) => {
+            zip.stream('xl/workbook.xml', (err: any, stream?: ReadStream) => {
+                if (!stream || err) {
+                    reject('Received error from node-stream-zip: ' + inspect(err, undefined, 4));
+                    return;
+                }
                 if (options.encoding) {
                     stream.setEncoding(options.encoding);
-                }
-                if (err) {
-                    reject(err);
                 }
                 stream.pipe(saxStream({
                     strict: true,
