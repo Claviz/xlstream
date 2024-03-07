@@ -244,6 +244,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
                         formats[i] = format;
                     }
                 }
+                let errorOccurred: any;
                 zip.stream('xl/sharedStrings.xml', (err: any, stream: ReadStream) => {
                     if (stream) {
                         if (options.encoding) {
@@ -253,20 +254,25 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
                             strict: true,
                             tag: ['x:si', 'si']
                         })).on('data', (x: any) => {
-                            const record = x.record;
-                            if (record.children.t) {
-                                strings.push(record.children.t.value);
-                            } else if (!record.children.r.length) {
-                                strings.push(record.children.r.children.t.value);
-                            } else {
-                                let str = '';
-                                for (let i = 0; i < record.children.r.length; i++) {
-                                    str += record.children.r[i].children.t.value;
+                            try {
+                                const record = x.record;
+                                if (record.children.t) {
+                                    strings.push(record.children.t.value);
+                                } else if (!record.children.r.length) {
+                                    strings.push(record.children.r.children.t.value);
+                                } else {
+                                    let str = '';
+                                    for (let i = 0; i < record.children.r.length; i++) {
+                                        str += record.children.r[i].children.t.value;
+                                    }
+                                    strings.push(str);
                                 }
-                                strings.push(str);
+                            } catch(e) {
+                                errorOccurred = e;
                             }
                         });
                         stream.on('end', () => {
+                            if (errorOccurred) return reject(errorOccurred);
                             resolve();
                         });
                     } else {
