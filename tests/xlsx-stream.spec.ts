@@ -394,3 +394,16 @@ it('reads XLSX file with styles.xml tags prefixed with `x:` correctly', async (d
         done();
     })
 });
+
+it('correctly formats Hh hours in date', async (done) => {
+    const data: any = [];
+    const stream = await getXlsxStream({
+        filePath: './tests/assets/incorrect-hours-format.xlsx',
+        sheet: 0,
+    });
+    stream.on('data', x => data.push(x));
+    stream.on('end', () => {
+        expect(data).toMatchSnapshot();
+        done();
+    })
+});

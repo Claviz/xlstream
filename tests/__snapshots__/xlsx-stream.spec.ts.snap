@@ -162,6 +162,53 @@ Array [
 ]
 `;
 
+exports[`correctly formats Hh hours in date 1`] = `
+Array [
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "Date",
+      ],
+      "obj": Object {
+        "A": "Date",
+      },
+    },
+    "header": Array [],
+    "processedSheetSize": 1480,
+    "raw": Object {
+      "arr": Array [
+        "Date",
+      ],
+      "obj": Object {
+        "A": "Date",
+      },
+    },
+    "totalSheetSize": 1480,
+  },
+  Object {
+    "formatted": Object {
+      "arr": Array [
+        "2024-05-25 10:56:55",
+      ],
+      "obj": Object {
+        "A": "2024-05-25 10:56:55",
+      },
+    },
+    "header": Array [],
+    "processedSheetSize": 1480,
+    "raw": Object {
+      "arr": Array [
+        45437.456192129626,
+      ],
+      "obj": Object {
+        "A": 45437.456192129626,
+      },
+    },
+    "totalSheetSize": 1480,
+  },
+]
+`;
+
 exports[`correctly handles custom format 1`] = `
 Array [
   Object {

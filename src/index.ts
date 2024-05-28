@@ -139,6 +139,7 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
                             numFormat = numberFormat[numFormat];
                         }
                         if (typeof numFormat === 'string') {
+                            numFormat = numFormat.replace(/[Hh]{2}/g, 'hh');
                             value = numfmt.format(numFormat, value);
                         } else {
                             value = ssf.format(numFormat, value);
