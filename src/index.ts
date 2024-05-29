@@ -3,13 +3,19 @@ import fclone from 'fclone';
 import path from 'path';
 import ssf from 'ssf';
 import { Transform } from 'stream';
-import { ReadStream } from 'tty';
 import StreamZip from 'node-stream-zip';
+import saxStream from 'sax-stream';
+import rename = require('deep-rename-keys');
+import {
+    IMergedCellDictionary,
+    IWorksheet,
+    IWorksheetOptions,
+    IXlsxStreamOptions,
+    IXlsxStreamsOptions,
+    numberFormatType
+} from './types';
 
-import { IMergedCellDictionary, IWorksheet, IWorksheetOptions, IXlsxStreamOptions, IXlsxStreamsOptions, numberFormatType } from './types';
 
-const saxStream = require('sax-stream');
-const rename = require('deep-rename-keys');
 let currentSheetProcessedSize = 0;
 let currentSheetSize = 0;
 
@@ -292,8 +298,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
                                 for (var i = 0; i < children.length; i++) {
                                     numberFormats[Number(children[i].attribs.numFmtId)] = children[i].attribs.formatCode;
                                 }
-                            }
-                            else if ((x.tag === 'cellXfs' || x.tag === 'x:cellXfs') && x.record.children) {
+                            } else if ((x.tag === 'cellXfs' || x.tag === 'x:cellXfs') && x.record.children) {
                                 const xfField = x.record.children['x:xf'] ? 'x:xf' : 'xf';
                                 for (var i = 0; i < x.record.children[xfField].length; i++) {
                                     var ch = x.record.children[xfField][i];
