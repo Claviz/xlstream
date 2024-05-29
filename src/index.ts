@@ -4,10 +4,10 @@ import path from 'path';
 import ssf from 'ssf';
 import { Transform } from 'stream';
 import { ReadStream } from 'tty';
+import StreamZip from 'node-stream-zip';
 
 import { IMergedCellDictionary, IWorksheet, IWorksheetOptions, IXlsxStreamOptions, IXlsxStreamsOptions, numberFormatType } from './types';
 
-const StreamZip = require('node-stream-zip');
 const saxStream = require('sax-stream');
 const rename = require('deep-rename-keys');
 let currentSheetProcessedSize = 0;
@@ -245,7 +245,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
                         formats[i] = format;
                     }
                 }
-                zip.stream('xl/sharedStrings.xml', (err: any, stream: ReadStream) => {
+                zip.stream('xl/sharedStrings.xml', (err, stream) => {
                     if (stream) {
                         if (options.encoding) {
                             stream.setEncoding(options.encoding);
@@ -277,7 +277,7 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
             }
 
             function processStyles() {
-                zip.stream(`xl/styles.xml`, (err: any, stream: ReadStream) => {
+                zip.stream(`xl/styles.xml`, (err, stream) => {
                     if (stream) {
                         if (options.encoding) {
                             stream.setEncoding(options.encoding);
@@ -313,7 +313,11 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
             }
 
             function processWorkbook() {
-                zip.stream('xl/workbook.xml', (err: any, stream: ReadStream) => {
+                zip.stream('xl/workbook.xml', (err, stream) => {
+                    if (!stream) {
+                        return;
+                    }
+
                     if (options.encoding) {
                         stream.setEncoding(options.encoding);
                     }
@@ -331,7 +335,11 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
             }
 
             function getRels() {
-                zip.stream('xl/_rels/workbook.xml.rels', (err: any, stream: ReadStream) => {
+                zip.stream('xl/_rels/workbook.xml.rels', (err, stream) => {
+                    if (!stream) {
+                        return;
+                    }
+
                     if (options.encoding) {
                         stream.setEncoding(options.encoding);
                     }
@@ -359,7 +367,11 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
 
     function getMergedCellDictionary(sheetFileName: string) {
         return new Promise<IMergedCellDictionary>((resolve, reject) => {
-            zip.stream(`xl/worksheets/${sheetFileName}`, (err: any, stream: ReadStream) => {
+            zip.stream(`xl/worksheets/${sheetFileName}`, (err, stream) => {
+                if (!stream) {
+                    return;
+                }
+
                 if (options.encoding) {
                     stream.setEncoding(options.encoding);
                 }
@@ -412,7 +424,11 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
         }
         return new Promise<Transform>((resolve, reject) => {
             const sheetFullFileName = `xl/worksheets/${sheetFileName}`;
-            zip.stream(sheetFullFileName, (err: any, stream: ReadStream) => {
+            zip.stream(sheetFullFileName, (err, stream) => {
+                if (!stream) {
+                    return;
+                }
+
                 if (options.encoding) {
                     stream.setEncoding(options.encoding);
                 }
@@ -460,7 +476,11 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
 export function getWorksheets(options: IWorksheetOptions) {
     return new Promise<IWorksheet[]>((resolve, reject) => {
         function processWorkbook() {
-            zip.stream('xl/workbook.xml', (err: any, stream: ReadStream) => {
+            zip.stream('xl/workbook.xml', (err, stream) => {
+                if (!stream) {
+                    return;
+                }
+
                 if (options.encoding) {
                     stream.setEncoding(options.encoding);
                 }
