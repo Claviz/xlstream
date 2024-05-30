@@ -1,6 +1,5 @@
 import { getXlsxStream, getXlsxStreams, getWorksheets } from '../src';
-import { Transform } from 'stream';
-import { open } from 'fs';
+import {setTimeout} from 'timers/promises'
 
 async function iterableToArray(iterable: AsyncIterable<unknown>): Promise<unknown[]> {
     const data = [];

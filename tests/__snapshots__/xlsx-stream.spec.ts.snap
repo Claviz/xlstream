@@ -1999,4 +1999,4 @@ exports[`reads number values with leading zeroes correctly 1`] = `
 ]
 `;
 
-exports[`throws expected bad archive error 1`] = `[Error: Error: Archive read error]`;
+exports[`throws expected bad archive error 1`] = `[Error: Archive read error]`;
