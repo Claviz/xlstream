@@ -139,7 +139,9 @@ function getTransform(formats: (string | number)[], strings: string[], dict?: IM
                             numFormat = numberFormat[numFormat];
                         }
                         if (typeof numFormat === 'string') {
-                            value = numfmt.format(numFormat, value);
+                            try {
+                                value = numfmt.format(numFormat, value);
+                            } catch () {}
                         } else {
                             value = ssf.format(numFormat, value);
                         }
