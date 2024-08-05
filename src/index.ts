@@ -351,6 +351,9 @@ export async function* getXlsxStreams(options: IXlsxStreamsOptions): AsyncGenera
                     stream.on('end', () => {
                         processWorkbook();
                     });
+                    stream.on('error', (e : any) => {
+                        reject(new Error(e));
+                    });
                 });
             }
 
