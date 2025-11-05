@@ -7,12 +7,12 @@ export interface IXlsxStreamOptions {
     ignoreEmpty?: boolean;
     fillMergedCells?: boolean;
     numberFormat?: numberFormatType;
-    encoding?: string;
+    encoding?: BufferEncoding;
 }
 
 export interface IXlsxStreamsOptions {
     filePath: string;
-    encoding?: string;
+    encoding?: BufferEncoding;
     sheets: {
         id: string | number;
         withHeader?: boolean | number;
@@ -24,7 +24,7 @@ export interface IXlsxStreamsOptions {
 
 export interface IWorksheetOptions {
     filePath: string;
-    encoding?: string;
+    encoding?: BufferEncoding;
 }
 
 export interface IWorksheet {
