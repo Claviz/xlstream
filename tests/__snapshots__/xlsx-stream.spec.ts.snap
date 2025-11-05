@@ -1,90 +1,90 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`adds empty rows not containing data when ignoreEmpty is false 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         "hello",
         "world",
       ],
-      "obj": Object {
+      "obj": {
         "A": "hello",
         "B": "world",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1229,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "hello",
         "world",
       ],
-      "obj": Object {
+      "obj": {
         "A": "hello",
         "B": "world",
       },
     },
     "totalSheetSize": 1229,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [],
-      "obj": Object {},
+  {
+    "formatted": {
+      "arr": [],
+      "obj": {},
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1229,
-    "raw": Object {
-      "arr": Array [],
-      "obj": Object {},
+    "raw": {
+      "arr": [],
+      "obj": {},
     },
     "totalSheetSize": 1229,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [],
-      "obj": Object {},
+  {
+    "formatted": {
+      "arr": [],
+      "obj": {},
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1229,
-    "raw": Object {
-      "arr": Array [],
-      "obj": Object {},
+    "raw": {
+      "arr": [],
+      "obj": {},
     },
     "totalSheetSize": 1229,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [],
-      "obj": Object {},
+  {
+    "formatted": {
+      "arr": [],
+      "obj": {},
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1229,
-    "raw": Object {
-      "arr": Array [],
-      "obj": Object {},
+    "raw": {
+      "arr": [],
+      "obj": {},
     },
     "totalSheetSize": 1229,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         "hello",
         "world",
       ],
-      "obj": Object {
+      "obj": {
         "A": "hello",
         "B": "world",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1229,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "hello",
         "world",
       ],
-      "obj": Object {
+      "obj": {
         "A": "hello",
         "B": "world",
       },
@@ -95,65 +95,65 @@ Array [
 `;
 
 exports[`applies custom number format 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         5931.2,
       ],
-      "obj": Object {
+      "obj": {
         "A": 5931.2,
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1162,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         0.333,
       ],
-      "obj": Object {
+      "obj": {
         "A": 0.333,
       },
     },
     "totalSheetSize": 1162,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         "59:31.2",
       ],
-      "obj": Object {
+      "obj": {
         "A": "59:31.2",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1025,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         0.333,
       ],
-      "obj": Object {
+      "obj": {
         "A": 0.333,
       },
     },
     "totalSheetSize": 1025,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        "59 31",
+  {
+    "formatted": {
+      "arr": [
+        "59 31",
       ],
-      "obj": Object {
-        "A": "59 31",
+      "obj": {
+        "A": "59 31",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1041,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         0.333,
       ],
-      "obj": Object {
+      "obj": {
         "A": 0.333,
       },
     },
@@ -162,45 +162,92 @@ Array [
 ]
 `;
 
+exports[`correctly formats Hh hours in date 1`] = `
+[
+  {
+    "formatted": {
+      "arr": [
+        "Date",
+      ],
+      "obj": {
+        "A": "Date",
+      },
+    },
+    "header": [],
+    "processedSheetSize": 1480,
+    "raw": {
+      "arr": [
+        "Date",
+      ],
+      "obj": {
+        "A": "Date",
+      },
+    },
+    "totalSheetSize": 1480,
+  },
+  {
+    "formatted": {
+      "arr": [
+        "2024-05-25 10:56:55",
+      ],
+      "obj": {
+        "A": "2024-05-25 10:56:55",
+      },
+    },
+    "header": [],
+    "processedSheetSize": 1480,
+    "raw": {
+      "arr": [
+        45437.456192129626,
+      ],
+      "obj": {
+        "A": 45437.456192129626,
+      },
+    },
+    "totalSheetSize": 1480,
+  },
+]
+`;
+
 exports[`correctly handles custom format 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         "custom format",
       ],
-      "obj": Object {
+      "obj": {
         "A": "custom format",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1190,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "custom format",
       ],
-      "obj": Object {
+      "obj": {
         "A": "custom format",
       },
     },
     "totalSheetSize": 1190,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         "(72.1)%",
       ],
-      "obj": Object {
+      "obj": {
         "A": "(72.1)%",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1190,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         -0.720649202194373,
       ],
-      "obj": Object {
+      "obj": {
         "A": -0.720649202194373,
       },
     },
@@ -210,46 +257,46 @@ Array [
 `;
 
 exports[`correctly handles shared string if it has just one value in cell 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         "Email test",
       ],
-      "obj": Object {
+      "obj": {
         "A": "Email test",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 5210,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "Email test",
       ],
-      "obj": Object {
+      "obj": {
         "A": "Email test",
       },
     },
     "totalSheetSize": 5210,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
+  {
+    "formatted": {
+      "arr": [
+        ,
         "test@test.com",
       ],
-      "obj": Object {
+      "obj": {
         "B": "test@test.com",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 5210,
-    "raw": Object {
-      "arr": Array [
-        undefined,
+    "raw": {
+      "arr": [
+        ,
         "test@test.com",
       ],
-      "obj": Object {
+      "obj": {
         "B": "test@test.com",
       },
     },
@@ -259,26 +306,26 @@ Array [
 `;
 
 exports[`correctly reads file created with OpenXML (with \`x\` namespaces) 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         "a",
         "b",
       ],
-      "obj": Object {
+      "obj": {
         "A": "a",
         "B": "b",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 237,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "a",
         "b",
       ],
-      "obj": Object {
+      "obj": {
         "A": "a",
         "B": "b",
       },
@@ -289,90 +336,90 @@ Array [
 `;
 
 exports[`does not ignore empty rows with data when ignoreEmpty is false 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         "hello",
         "world",
       ],
-      "obj": Object {
+      "obj": {
         "A": "hello",
         "B": "world",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1470,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "hello",
         "world",
       ],
-      "obj": Object {
+      "obj": {
         "A": "hello",
         "B": "world",
       },
     },
     "totalSheetSize": 1470,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [],
-      "obj": Object {},
+  {
+    "formatted": {
+      "arr": [],
+      "obj": {},
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1470,
-    "raw": Object {
-      "arr": Array [],
-      "obj": Object {},
+    "raw": {
+      "arr": [],
+      "obj": {},
     },
     "totalSheetSize": 1470,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [],
-      "obj": Object {},
+  {
+    "formatted": {
+      "arr": [],
+      "obj": {},
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1470,
-    "raw": Object {
-      "arr": Array [],
-      "obj": Object {},
+    "raw": {
+      "arr": [],
+      "obj": {},
     },
     "totalSheetSize": 1470,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [],
-      "obj": Object {},
+  {
+    "formatted": {
+      "arr": [],
+      "obj": {},
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1470,
-    "raw": Object {
-      "arr": Array [],
-      "obj": Object {},
+    "raw": {
+      "arr": [],
+      "obj": {},
     },
     "totalSheetSize": 1470,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         "hello",
         "world",
       ],
-      "obj": Object {
+      "obj": {
         "A": "hello",
         "B": "world",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1470,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "hello",
         "world",
       ],
-      "obj": Object {
+      "obj": {
         "A": "hello",
         "B": "world",
       },
@@ -383,23 +430,23 @@ Array [
 `;
 
 exports[`doesn't fail when empty row has custom height 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         "test",
       ],
-      "obj": Object {
+      "obj": {
         "A": "test",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1150,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "test",
       ],
-      "obj": Object {
+      "obj": {
         "A": "test",
       },
     },
@@ -409,33 +456,33 @@ Array [
 `;
 
 exports[`fills merged cells with data 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
-        undefined,
+[
+  {
+    "formatted": {
+      "arr": [
+        ,
+        ,
         "text1",
         "text1",
         "text1",
       ],
-      "obj": Object {
+      "obj": {
         "C": "text1",
         "D": "text1",
         "E": "text1",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [
-        undefined,
-        undefined,
+    "raw": {
+      "arr": [
+        ,
+        ,
         "text1",
         "text1",
         "text1",
       ],
-      "obj": Object {
+      "obj": {
         "C": "text1",
         "D": "text1",
         "E": "text1",
@@ -443,170 +490,135 @@ Array [
     },
     "totalSheetSize": 1556,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
-        undefined,
+  {
+    "formatted": {
+      "arr": [
+        ,
+        ,
         "$5.67",
       ],
-      "obj": Object {
+      "obj": {
         "C": "$5.67",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [
-        undefined,
-        undefined,
+    "raw": {
+      "arr": [
+        ,
+        ,
         5.66666,
       ],
-      "obj": Object {
+      "obj": {
         "C": 5.66666,
       },
     },
     "totalSheetSize": 1556,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
-        undefined,
+  {
+    "formatted": {
+      "arr": [
+        ,
+        ,
         "$5.67",
       ],
-      "obj": Object {
+      "obj": {
         "C": "$5.67",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [
-        undefined,
-        undefined,
+    "raw": {
+      "arr": [
+        ,
+        ,
         5.66666,
       ],
-      "obj": Object {
+      "obj": {
         "C": 5.66666,
       },
     },
     "totalSheetSize": 1556,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
-        undefined,
+  {
+    "formatted": {
+      "arr": [
+        ,
+        ,
         "$5.67",
       ],
-      "obj": Object {
+      "obj": {
         "C": "$5.67",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [
-        undefined,
-        undefined,
+    "raw": {
+      "arr": [
+        ,
+        ,
         5.66666,
       ],
-      "obj": Object {
+      "obj": {
         "C": 5.66666,
       },
     },
     "totalSheetSize": 1556,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [],
-      "obj": Object {},
+  {
+    "formatted": {
+      "arr": [],
+      "obj": {},
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [],
-      "obj": Object {},
+    "raw": {
+      "arr": [],
+      "obj": {},
     },
     "totalSheetSize": 1556,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [],
-      "obj": Object {},
+  {
+    "formatted": {
+      "arr": [],
+      "obj": {},
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [],
-      "obj": Object {},
+    "raw": {
+      "arr": [],
+      "obj": {},
     },
     "totalSheetSize": 1556,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
+  {
+    "formatted": {
+      "arr": [
+        ,
+        ,
+        ,
         "text3",
         "text3",
         "text3",
       ],
-      "obj": Object {
+      "obj": {
         "D": "text3",
         "E": "text3",
         "F": "text3",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
+    "raw": {
+      "arr": [
+        ,
+        ,
+        ,
         "text3",
         "text3",
         "text3",
       ],
-      "obj": Object {
-        "D": "text3",
-        "E": "text3",
-        "F": "text3",
-      },
-    },
-    "totalSheetSize": 1556,
-  },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
-        "text3",
-        "text3",
-        "text3",
-      ],
-      "obj": Object {
-        "D": "text3",
-        "E": "text3",
-        "F": "text3",
-      },
-    },
-    "header": Array [],
-    "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
-        "text3",
-        "text3",
-        "text3",
-      ],
-      "obj": Object {
+      "obj": {
         "D": "text3",
         "E": "text3",
         "F": "text3",
@@ -614,325 +626,360 @@ Array [
     },
     "totalSheetSize": 1556,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [],
-      "obj": Object {},
-    },
-    "header": Array [],
-    "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [],
-      "obj": Object {},
-    },
-    "totalSheetSize": 1556,
-  },
-  Object {
-    "formatted": Object {
-      "arr": Array [],
-      "obj": Object {},
-    },
-    "header": Array [],
-    "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [],
-      "obj": Object {},
-    },
-    "totalSheetSize": 1556,
-  },
-  Object {
-    "formatted": Object {
-      "arr": Array [],
-      "obj": Object {},
-    },
-    "header": Array [],
-    "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [],
-      "obj": Object {},
-    },
-    "totalSheetSize": 1556,
-  },
-  Object {
-    "formatted": Object {
-      "arr": Array [],
-      "obj": Object {},
-    },
-    "header": Array [],
-    "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [],
-      "obj": Object {},
-    },
-    "totalSheetSize": 1556,
-  },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        "text4",
-        "text4",
+  {
+    "formatted": {
+      "arr": [
+        ,
+        ,
+        ,
+        "text3",
+        "text3",
+        "text3",
       ],
-      "obj": Object {
-        "H": "text4",
-        "I": "text4",
+      "obj": {
+        "D": "text3",
+        "E": "text3",
+        "F": "text3",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        "text4",
-        "text4",
+    "raw": {
+      "arr": [
+        ,
+        ,
+        ,
+        "text3",
+        "text3",
+        "text3",
       ],
-      "obj": Object {
-        "H": "text4",
-        "I": "text4",
+      "obj": {
+        "D": "text3",
+        "E": "text3",
+        "F": "text3",
       },
     },
     "totalSheetSize": 1556,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
+  {
+    "formatted": {
+      "arr": [],
+      "obj": {},
+    },
+    "header": [],
+    "processedSheetSize": 1556,
+    "raw": {
+      "arr": [],
+      "obj": {},
+    },
+    "totalSheetSize": 1556,
+  },
+  {
+    "formatted": {
+      "arr": [],
+      "obj": {},
+    },
+    "header": [],
+    "processedSheetSize": 1556,
+    "raw": {
+      "arr": [],
+      "obj": {},
+    },
+    "totalSheetSize": 1556,
+  },
+  {
+    "formatted": {
+      "arr": [],
+      "obj": {},
+    },
+    "header": [],
+    "processedSheetSize": 1556,
+    "raw": {
+      "arr": [],
+      "obj": {},
+    },
+    "totalSheetSize": 1556,
+  },
+  {
+    "formatted": {
+      "arr": [],
+      "obj": {},
+    },
+    "header": [],
+    "processedSheetSize": 1556,
+    "raw": {
+      "arr": [],
+      "obj": {},
+    },
+    "totalSheetSize": 1556,
+  },
+  {
+    "formatted": {
+      "arr": [
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         "text4",
         "text4",
       ],
-      "obj": Object {
+      "obj": {
         "H": "text4",
         "I": "text4",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
+    "raw": {
+      "arr": [
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         "text4",
         "text4",
       ],
-      "obj": Object {
+      "obj": {
         "H": "text4",
         "I": "text4",
       },
     },
     "totalSheetSize": 1556,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
+  {
+    "formatted": {
+      "arr": [
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         "text4",
         "text4",
       ],
-      "obj": Object {
+      "obj": {
         "H": "text4",
         "I": "text4",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
+    "raw": {
+      "arr": [
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         "text4",
         "text4",
       ],
-      "obj": Object {
+      "obj": {
         "H": "text4",
         "I": "text4",
       },
     },
     "totalSheetSize": 1556,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
+  {
+    "formatted": {
+      "arr": [
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         "text4",
         "text4",
       ],
-      "obj": Object {
+      "obj": {
         "H": "text4",
         "I": "text4",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
+    "raw": {
+      "arr": [
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         "text4",
         "text4",
       ],
-      "obj": Object {
+      "obj": {
         "H": "text4",
         "I": "text4",
       },
     },
     "totalSheetSize": 1556,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
+  {
+    "formatted": {
+      "arr": [
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         "text4",
         "text4",
       ],
-      "obj": Object {
+      "obj": {
         "H": "text4",
         "I": "text4",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
+    "raw": {
+      "arr": [
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         "text4",
         "text4",
       ],
-      "obj": Object {
+      "obj": {
         "H": "text4",
         "I": "text4",
       },
     },
     "totalSheetSize": 1556,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
+  {
+    "formatted": {
+      "arr": [
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         "text4",
         "text4",
       ],
-      "obj": Object {
+      "obj": {
         "H": "text4",
         "I": "text4",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
+    "raw": {
+      "arr": [
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         "text4",
         "text4",
       ],
-      "obj": Object {
+      "obj": {
         "H": "text4",
         "I": "text4",
       },
     },
     "totalSheetSize": 1556,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
+  {
+    "formatted": {
+      "arr": [
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         "text4",
         "text4",
       ],
-      "obj": Object {
+      "obj": {
         "H": "text4",
         "I": "text4",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1556,
-    "raw": Object {
-      "arr": Array [
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
-        undefined,
+    "raw": {
+      "arr": [
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
         "text4",
         "text4",
       ],
-      "obj": Object {
+      "obj": {
+        "H": "text4",
+        "I": "text4",
+      },
+    },
+    "totalSheetSize": 1556,
+  },
+  {
+    "formatted": {
+      "arr": [
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        "text4",
+        "text4",
+      ],
+      "obj": {
+        "H": "text4",
+        "I": "text4",
+      },
+    },
+    "header": [],
+    "processedSheetSize": 1556,
+    "raw": {
+      "arr": [
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        ,
+        "text4",
+        "text4",
+      ],
+      "obj": {
         "H": "text4",
         "I": "text4",
       },
@@ -943,37 +990,37 @@ Array [
 `;
 
 exports[`fills merged cells with data if header has merged cells 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         1,
         2,
         3,
         4,
       ],
-      "obj": Object {
+      "obj": {
         "[A] merged header #1": 1,
         "[B] merged header #1": 2,
         "[C] merged header #2": 3,
         "[D] merged header #2": 4,
       },
     },
-    "header": Array [
+    "header": [
       "[A] merged header #1",
       "[B] merged header #1",
       "[C] merged header #2",
       "[D] merged header #2",
     ],
     "processedSheetSize": 1457,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         1,
         2,
         3,
         4,
       ],
-      "obj": Object {
+      "obj": {
         "[A] merged header #1": 1,
         "[B] merged header #1": 2,
         "[C] merged header #2": 3,
@@ -982,36 +1029,36 @@ Array [
     },
     "totalSheetSize": 1457,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         5,
         6,
         7,
         8,
       ],
-      "obj": Object {
+      "obj": {
         "[A] merged header #1": 5,
         "[B] merged header #1": 6,
         "[C] merged header #2": 7,
         "[D] merged header #2": 8,
       },
     },
-    "header": Array [
+    "header": [
       "[A] merged header #1",
       "[B] merged header #1",
       "[C] merged header #2",
       "[D] merged header #2",
     ],
     "processedSheetSize": 1457,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         5,
         6,
         7,
         8,
       ],
-      "obj": Object {
+      "obj": {
         "[A] merged header #1": 5,
         "[B] merged header #1": 6,
         "[C] merged header #2": 7,
@@ -1020,68 +1067,68 @@ Array [
     },
     "totalSheetSize": 1457,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
-        undefined,
+  {
+    "formatted": {
+      "arr": [
+        ,
+        ,
         "merged",
         "merged",
       ],
-      "obj": Object {
+      "obj": {
         "[C] merged header #2": "merged",
         "[D] merged header #2": "merged",
       },
     },
-    "header": Array [
+    "header": [
       "[A] merged header #1",
       "[B] merged header #1",
       "[C] merged header #2",
       "[D] merged header #2",
     ],
     "processedSheetSize": 1457,
-    "raw": Object {
-      "arr": Array [
-        undefined,
-        undefined,
+    "raw": {
+      "arr": [
+        ,
+        ,
         "merged",
         "merged",
       ],
-      "obj": Object {
+      "obj": {
         "[C] merged header #2": "merged",
         "[D] merged header #2": "merged",
       },
     },
     "totalSheetSize": 1457,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
-        undefined,
+  {
+    "formatted": {
+      "arr": [
+        ,
+        ,
         "merged",
         "merged",
       ],
-      "obj": Object {
+      "obj": {
         "[C] merged header #2": "merged",
         "[D] merged header #2": "merged",
       },
     },
-    "header": Array [
+    "header": [
       "[A] merged header #1",
       "[B] merged header #1",
       "[C] merged header #2",
       "[D] merged header #2",
     ],
     "processedSheetSize": 1457,
-    "raw": Object {
-      "arr": Array [
-        undefined,
-        undefined,
+    "raw": {
+      "arr": [
+        ,
+        ,
         "merged",
         "merged",
       ],
-      "obj": Object {
+      "obj": {
         "[C] merged header #2": "merged",
         "[D] merged header #2": "merged",
       },
@@ -1092,23 +1139,23 @@ Array [
 `;
 
 exports[`gets worksheet by index, even if they are reordered 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         "Sheet5",
       ],
-      "obj": Object {
+      "obj": {
         "A": "Sheet5",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1057,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "Sheet5",
       ],
-      "obj": Object {
+      "obj": {
         "A": "Sheet5",
       },
     },
@@ -1118,23 +1165,23 @@ Array [
 `;
 
 exports[`gets worksheet by name, even if they are reordered 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         "Sheet1",
       ],
-      "obj": Object {
+      "obj": {
         "A": "Sheet1",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1073,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "Sheet1",
       ],
-      "obj": Object {
+      "obj": {
         "A": "Sheet1",
       },
     },
@@ -1144,51 +1191,51 @@ Array [
 `;
 
 exports[`ignores empty rows 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         "hello",
         "world",
       ],
-      "obj": Object {
+      "obj": {
         "A": "hello",
         "B": "world",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1470,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "hello",
         "world",
       ],
-      "obj": Object {
+      "obj": {
         "A": "hello",
         "B": "world",
       },
     },
     "totalSheetSize": 1470,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         "hello",
         "world",
       ],
-      "obj": Object {
+      "obj": {
         "A": "hello",
         "B": "world",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1470,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "hello",
         "world",
       ],
-      "obj": Object {
+      "obj": {
         "A": "hello",
         "B": "world",
       },
@@ -1199,44 +1246,44 @@ Array [
 `;
 
 exports[`reads 2 sheets from XLSX file using generator 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         "Sheet3",
       ],
-      "obj": Object {
+      "obj": {
         "A": "Sheet3",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1007,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "Sheet3",
       ],
-      "obj": Object {
+      "obj": {
         "A": "Sheet3",
       },
     },
     "totalSheetSize": 1007,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         "Sheet1",
       ],
-      "obj": Object {
+      "obj": {
         "A": "Sheet1",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1073,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "Sheet1",
       ],
-      "obj": Object {
+      "obj": {
         "A": "Sheet1",
       },
     },
@@ -1246,26 +1293,26 @@ Array [
 `;
 
 exports[`reads XLSX file correctly 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         "hello",
         123,
       ],
-      "obj": Object {
+      "obj": {
         "A": "hello",
         "B": 123,
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1110,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "hello",
         123.123,
       ],
-      "obj": Object {
+      "obj": {
         "A": "hello",
         "B": 123.123,
       },
@@ -1276,23 +1323,23 @@ Array [
 `;
 
 exports[`reads XLSX file correctly with correct encoding 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         "аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа",
       ],
-      "obj": Object {
+      "obj": {
         "A": "аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 2041,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа",
       ],
-      "obj": Object {
+      "obj": {
         "A": "аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа",
       },
     },
@@ -1302,23 +1349,23 @@ Array [
 `;
 
 exports[`reads XLSX file incorrectly without encoding set 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         "аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааа��ааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа",
       ],
-      "obj": Object {
+      "obj": {
         "A": "аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааа��ааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 2041,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааа��ааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа",
       ],
-      "obj": Object {
+      "obj": {
         "A": "аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааа��ааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа аааааааааааааааааааааааааааааааааааааааааааааааааааа",
       },
     },
@@ -1328,67 +1375,67 @@ Array [
 `;
 
 exports[`reads XLSX file with header 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         "hello",
-        undefined,
+        ,
         123,
       ],
-      "obj": Object {
+      "obj": {
         "column1": "hello",
         "column3": 123,
       },
     },
-    "header": Array [
+    "header": [
       "column1",
       "column2",
       "column3",
       "column4",
     ],
     "processedSheetSize": 2343,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "hello",
-        undefined,
+        ,
         123.123,
       ],
-      "obj": Object {
+      "obj": {
         "column1": "hello",
         "column3": 123.123,
       },
     },
     "totalSheetSize": 2343,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
-        undefined,
+  {
+    "formatted": {
+      "arr": [
+        ,
         "world",
-        undefined,
+        ,
         456,
       ],
-      "obj": Object {
+      "obj": {
         "column2": "world",
         "column4": 456,
       },
     },
-    "header": Array [
+    "header": [
       "column1",
       "column2",
       "column3",
       "column4",
     ],
     "processedSheetSize": 2343,
-    "raw": Object {
-      "arr": Array [
-        undefined,
+    "raw": {
+      "arr": [
+        ,
         "world",
-        undefined,
+        ,
         456,
       ],
-      "obj": Object {
+      "obj": {
         "column2": "world",
         "column4": 456,
       },
@@ -1399,217 +1446,217 @@ Array [
 `;
 
 exports[`reads XLSX file with header located in specific row 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [],
-      "obj": Object {},
+[
+  {
+    "formatted": {
+      "arr": [],
+      "obj": {},
     },
-    "header": Array [
+    "header": [
       "header1",
       "header2",
     ],
     "processedSheetSize": 1542,
-    "raw": Object {
-      "arr": Array [],
-      "obj": Object {},
+    "raw": {
+      "arr": [],
+      "obj": {},
     },
     "totalSheetSize": 1542,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         "void1",
         "void2",
       ],
-      "obj": Object {
+      "obj": {
         "A": "void1",
         "B": "void2",
       },
     },
-    "header": Array [
+    "header": [
       "header1",
       "header2",
     ],
     "processedSheetSize": 1542,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "void1",
         "void2",
       ],
-      "obj": Object {
+      "obj": {
         "A": "void1",
         "B": "void2",
       },
     },
     "totalSheetSize": 1542,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         "void3",
         "void4",
       ],
-      "obj": Object {
+      "obj": {
         "A": "void3",
         "B": "void4",
       },
     },
-    "header": Array [
+    "header": [
       "header1",
       "header2",
     ],
     "processedSheetSize": 1542,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "void3",
         "void4",
       ],
-      "obj": Object {
+      "obj": {
         "A": "void3",
         "B": "void4",
       },
     },
     "totalSheetSize": 1542,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [],
-      "obj": Object {},
+  {
+    "formatted": {
+      "arr": [],
+      "obj": {},
     },
-    "header": Array [
+    "header": [
       "header1",
       "header2",
     ],
     "processedSheetSize": 1542,
-    "raw": Object {
-      "arr": Array [],
-      "obj": Object {},
+    "raw": {
+      "arr": [],
+      "obj": {},
     },
     "totalSheetSize": 1542,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [],
-      "obj": Object {},
+  {
+    "formatted": {
+      "arr": [],
+      "obj": {},
     },
-    "header": Array [
+    "header": [
       "header1",
       "header2",
     ],
     "processedSheetSize": 1542,
-    "raw": Object {
-      "arr": Array [],
-      "obj": Object {},
+    "raw": {
+      "arr": [],
+      "obj": {},
     },
     "totalSheetSize": 1542,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         "a",
         "b",
       ],
-      "obj": Object {
+      "obj": {
         "header1": "a",
         "header2": "b",
       },
     },
-    "header": Array [
+    "header": [
       "header1",
       "header2",
     ],
     "processedSheetSize": 1542,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "a",
         "b",
       ],
-      "obj": Object {
+      "obj": {
         "header1": "a",
         "header2": "b",
       },
     },
     "totalSheetSize": 1542,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         "c",
         "d",
       ],
-      "obj": Object {
+      "obj": {
         "header1": "c",
         "header2": "d",
       },
     },
-    "header": Array [
+    "header": [
       "header1",
       "header2",
     ],
     "processedSheetSize": 1542,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "c",
         "d",
       ],
-      "obj": Object {
+      "obj": {
         "header1": "c",
         "header2": "d",
       },
     },
     "totalSheetSize": 1542,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         "e",
         "f",
       ],
-      "obj": Object {
+      "obj": {
         "header1": "e",
         "header2": "f",
       },
     },
-    "header": Array [
+    "header": [
       "header1",
       "header2",
     ],
     "processedSheetSize": 1542,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "e",
         "f",
       ],
-      "obj": Object {
+      "obj": {
         "header1": "e",
         "header2": "f",
       },
     },
     "totalSheetSize": 1542,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         "g",
         "h",
       ],
-      "obj": Object {
+      "obj": {
         "header1": "g",
         "header2": "h",
       },
     },
-    "header": Array [
+    "header": [
       "header1",
       "header2",
     ],
     "processedSheetSize": 1542,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "g",
         "h",
       ],
-      "obj": Object {
+      "obj": {
         "header1": "g",
         "header2": "h",
       },
@@ -1620,37 +1667,37 @@ Array [
 `;
 
 exports[`reads XLSX file with header values being dupicated 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         1,
         2,
         3,
         4,
       ],
-      "obj": Object {
+      "obj": {
         "[B] header2": 2,
         "[C] header2": 3,
         "header1": 1,
         "header3": 4,
       },
     },
-    "header": Array [
+    "header": [
       "header1",
       "[B] header2",
       "[C] header2",
       "header3",
     ],
     "processedSheetSize": 1367,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         1,
         2,
         3,
         4,
       ],
-      "obj": Object {
+      "obj": {
         "[B] header2": 2,
         "[C] header2": 3,
         "header1": 1,
@@ -1659,36 +1706,36 @@ Array [
     },
     "totalSheetSize": 1367,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         5,
         6,
         7,
         8,
       ],
-      "obj": Object {
+      "obj": {
         "[B] header2": 6,
         "[C] header2": 7,
         "header1": 5,
         "header3": 8,
       },
     },
-    "header": Array [
+    "header": [
       "header1",
       "[B] header2",
       "[C] header2",
       "header3",
     ],
     "processedSheetSize": 1367,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         5,
         6,
         7,
         8,
       ],
-      "obj": Object {
+      "obj": {
         "[B] header2": 6,
         "[C] header2": 7,
         "header1": 5,
@@ -1701,37 +1748,37 @@ Array [
 `;
 
 exports[`reads XLSX file with header values being undefined 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         1,
         2,
         3,
         4,
       ],
-      "obj": Object {
+      "obj": {
         "[B]": 2,
         "[C]": 3,
         "columnA": 1,
         "columnD": 4,
       },
     },
-    "header": Array [
+    "header": [
       "columnA",
       "[B]",
       "[C]",
       "columnD",
     ],
     "processedSheetSize": 1597,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         1,
         2,
         3,
         4,
       ],
-      "obj": Object {
+      "obj": {
         "[B]": 2,
         "[C]": 3,
         "columnA": 1,
@@ -1740,23 +1787,23 @@ Array [
     },
     "totalSheetSize": 1597,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         1,
-        undefined,
+        ,
         3,
         4,
         5,
       ],
-      "obj": Object {
+      "obj": {
         "[C]": 3,
         "[E]": 5,
         "columnA": 1,
         "columnD": 4,
       },
     },
-    "header": Array [
+    "header": [
       "columnA",
       "[B]",
       "[C]",
@@ -1764,15 +1811,15 @@ Array [
       "[E]",
     ],
     "processedSheetSize": 1597,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         1,
-        undefined,
+        ,
         3,
         4,
         5,
       ],
-      "obj": Object {
+      "obj": {
         "[C]": 3,
         "[E]": 5,
         "columnA": 1,
@@ -1781,9 +1828,9 @@ Array [
     },
     "totalSheetSize": 1597,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         1,
         2,
         3,
@@ -1791,7 +1838,7 @@ Array [
         5,
         6,
       ],
-      "obj": Object {
+      "obj": {
         "[B]": 2,
         "[C]": 3,
         "[E]": 5,
@@ -1800,7 +1847,7 @@ Array [
         "columnD": 4,
       },
     },
-    "header": Array [
+    "header": [
       "columnA",
       "[B]",
       "[C]",
@@ -1809,8 +1856,8 @@ Array [
       "[F]",
     ],
     "processedSheetSize": 1597,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         1,
         2,
         3,
@@ -1818,7 +1865,7 @@ Array [
         5,
         6,
       ],
-      "obj": Object {
+      "obj": {
         "[B]": 2,
         "[C]": 3,
         "[E]": 5,
@@ -1833,29 +1880,29 @@ Array [
 `;
 
 exports[`reads XLSX file with styles.xml tags prefixed with \`x:\` correctly 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         "Year",
         "Month",
         "Day",
       ],
-      "obj": Object {
+      "obj": {
         "A": "Year",
         "B": "Month",
         "C": "Day",
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1246,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "Year",
         "Month",
         "Day",
       ],
-      "obj": Object {
+      "obj": {
         "A": "Year",
         "B": "Month",
         "C": "Day",
@@ -1863,28 +1910,28 @@ Array [
     },
     "totalSheetSize": 1246,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         0,
         "January",
         0,
       ],
-      "obj": Object {
+      "obj": {
         "A": 0,
         "B": "January",
         "C": 0,
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1246,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         2022,
         "January",
         1,
       ],
-      "obj": Object {
+      "obj": {
         "A": 2022,
         "B": "January",
         "C": 1,
@@ -1895,54 +1942,54 @@ Array [
 ]
 `;
 
-exports[`reads empty XLSX file correctly 1`] = `Array []`;
+exports[`reads empty XLSX file correctly 1`] = `[]`;
 
 exports[`reads number values with leading zeroes correctly 1`] = `
-Array [
-  Object {
-    "formatted": Object {
-      "arr": Array [
+[
+  {
+    "formatted": {
+      "arr": [
         "0000",
         0,
       ],
-      "obj": Object {
+      "obj": {
         "A": "0000",
         "B": 0,
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1102,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "0000",
         0,
       ],
-      "obj": Object {
+      "obj": {
         "A": "0000",
         "B": 0,
       },
     },
     "totalSheetSize": 1102,
   },
-  Object {
-    "formatted": Object {
-      "arr": Array [
+  {
+    "formatted": {
+      "arr": [
         "0001",
         1,
       ],
-      "obj": Object {
+      "obj": {
         "A": "0001",
         "B": 1,
       },
     },
-    "header": Array [],
+    "header": [],
     "processedSheetSize": 1102,
-    "raw": Object {
-      "arr": Array [
+    "raw": {
+      "arr": [
         "0001",
         1,
       ],
-      "obj": Object {
+      "obj": {
         "A": "0001",
         "B": 1,
       },

@@ -60,4 +60,7 @@ typings/
 # next.js build output
 .next
 
+# IntelliJ Idea config files
+.idea
+
 lib
